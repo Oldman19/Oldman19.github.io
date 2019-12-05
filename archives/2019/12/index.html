@@ -144,36 +144,32 @@
                 
 <div class="primary-container content-box is-flex-desktop clear-padding bottom-line" style="margin-bottom: 25px;">
     <div class="column  is-7-desktop">
-        <a href="/2019/12/03/XSS_2/">
+        <a href="/2019/12/05/CSRF_2/">
             <div class="full-height post-hover"
                  style="
-                         background-image: url('/images/xsschat.png');
+                         background-image: url('');
                          height: 350px;
                          background-size: cover;
                          background-repeat: no-repeat;
                          ">
                     <div class=" is-flex flex-column center content has-text-centered full-height has-padding content-bg-mask">
                         <h1 class="title text-shadow" style="margin-bottom: 15px;">
-                            XSS_2
+                            CSRF_bypass和案例
                         </h1>
                         <div>
                         
                             `
-                                <span class="tag is-post-tag">xss</span>
+                                <span class="tag is-post-tag">CSRF</span>
                             
                         
                         </div>
                         <p class="post-content-text is-marginless has-padding text-shadow">
                             
 
-文件上传XSS1.上传html文件
-&#8195;文件内容为xss的payload
-&#8195;&lt;svg/onload=alert(1)&gt;
-&#8195;上传成功后去访问就会触发
-2.上传svg文件
-&#8195;sv..
+Bypass1.使用其他人的CSRF令牌
+&#8195;当应用程序不验证csrf令牌是否绑定到这个账户时，可以自己尝试去验证这一点：首先用账户a登录到网站，转到密码更改页面，使用burp抓取csrf令牌。使用账户B登录网站，并修改账..
                         </p>
-                        <p class="date text-shadow">2019-12-03</p>
+                        <p class="date text-shadow">2019-12-05</p>
                         <button class="button is-info is-small">Read More</button>
                     </div>
             </div>
@@ -183,33 +179,36 @@
         <div class="full-height is-flex flex-column justify-space-between" style="min-height: 350px;">
             
                 
-<a class="post-hover" href="/2019/12/03/脚本收集/" style="height: 48.5%">
-    <div class="content is-hidden-touch full-height overflow-hidden" style="background-image: url('')">
+<a class="post-hover" href="/2019/12/05/CSRF_1/" style="height: 48.5%">
+    <div class="content is-hidden-touch full-height overflow-hidden" style="background-image: url('/images/csrf.png')">
         <div class="content-bg-mask full-width full-height has-padding">
             <h3 class="title is-marginless text-shadow">
-                脚本收集
+                CSRF_1
             </h3>
             
             
-            <span class="tag is-post-tag">脚本</span>
+            <span class="tag is-post-tag">CSRF</span>
             
             
             <p class="sub-title text-shadow"></p>
             <p class="is-marginless text-shadow post-content-text">
-                此贴不定时更新一些有用的小脚本小工具https://github.com/gwen001/pen..
+                
+
+
+漏洞原理&#8195;当web应用没有对用户的一些敏感操作（修改密码，添加用户等）进行二次..
             </p>
-            <p class="date text-shadow is-marginless">2019-12-03</p>
+            <p class="date text-shadow is-marginless">2019-12-05</p>
         </div>
     </div>
 </a>
             
             
                 
-<a class="post-hover" href="/2019/12/02/XSS bypass/" style="height: 48.5%">
-    <div class="content is-hidden-touch full-height overflow-hidden" style="background-image: url('/images/xssbp.png')">
+<a class="post-hover" href="/2019/12/03/XSS_2/" style="height: 48.5%">
+    <div class="content is-hidden-touch full-height overflow-hidden" style="background-image: url('/images/xsschat.png')">
         <div class="content-bg-mask full-width full-height has-padding">
             <h3 class="title is-marginless text-shadow">
-                XSS bypass
+                XSS_案例
             </h3>
             
             
@@ -220,12 +219,12 @@
             <p class="is-marginless text-shadow post-content-text">
                 
 
-Bypass&#8195;1.hex编码
 
-&#8195;2.大小写
-1&lt;script..
+文件上传XSS1.上传html文件
+&#8195;文件内容为xss的payload
+&#8..
             </p>
-            <p class="date text-shadow is-marginless">2019-12-02</p>
+            <p class="date text-shadow is-marginless">2019-12-03</p>
         </div>
     </div>
 </a>
@@ -235,33 +234,36 @@ Bypass&#8195;1.hex编码
     <div class="column is-12 is-hidden-desktop">
         
         
-<a class="post-hover" href="/2019/12/03/脚本收集/" style="height: 48.5%">
-    <div class="content is-hidden-touch full-height overflow-hidden" style="background-image: url('')">
+<a class="post-hover" href="/2019/12/05/CSRF_1/" style="height: 48.5%">
+    <div class="content is-hidden-touch full-height overflow-hidden" style="background-image: url('/images/csrf.png')">
         <div class="content-bg-mask full-width full-height has-padding">
             <h3 class="title is-marginless text-shadow">
-                脚本收集
+                CSRF_1
             </h3>
             
             
-            <span class="tag is-post-tag">脚本</span>
+            <span class="tag is-post-tag">CSRF</span>
             
             
             <p class="sub-title text-shadow"></p>
             <p class="is-marginless text-shadow post-content-text">
-                此贴不定时更新一些有用的小脚本小工具https://github.com/gwen001/pen..
+                
+
+
+漏洞原理&#8195;当web应用没有对用户的一些敏感操作（修改密码，添加用户等）进行二次..
             </p>
-            <p class="date text-shadow is-marginless">2019-12-03</p>
+            <p class="date text-shadow is-marginless">2019-12-05</p>
         </div>
     </div>
 </a>
         
         
         
-<a class="post-hover" href="/2019/12/02/XSS bypass/" style="height: 48.5%">
-    <div class="content is-hidden-touch full-height overflow-hidden" style="background-image: url('/images/xssbp.png')">
+<a class="post-hover" href="/2019/12/03/XSS_2/" style="height: 48.5%">
+    <div class="content is-hidden-touch full-height overflow-hidden" style="background-image: url('/images/xsschat.png')">
         <div class="content-bg-mask full-width full-height has-padding">
             <h3 class="title is-marginless text-shadow">
-                XSS bypass
+                XSS_案例
             </h3>
             
             
@@ -272,12 +274,12 @@ Bypass&#8195;1.hex编码
             <p class="is-marginless text-shadow post-content-text">
                 
 
-Bypass&#8195;1.hex编码
 
-&#8195;2.大小写
-1&lt;script..
+文件上传XSS1.上传html文件
+&#8195;文件内容为xss的payload
+&#8..
             </p>
-            <p class="date text-shadow is-marginless">2019-12-02</p>
+            <p class="date text-shadow is-marginless">2019-12-03</p>
         </div>
     </div>
 </a>
@@ -290,6 +292,81 @@ Bypass&#8195;1.hex编码
                 
                     
                         <div class="content-box  is-hidden-desktop" style="margin-bottom: 27px;">
+                            <a class="post-hover" href="/2019/12/05/CSRF_1/">
+                            <div class="columns" style="min-height: 230px;">
+                                
+                                    <div class="column is-4-desktop is-5-tablet post-avatar is-hidden-mobile"
+                                         style="margin: 10px; background-size: cover;background-image: url('/images/csrf.png')">
+                                    </div>
+                                
+                                <div class="column is-8-desktop post-content is-flex align-center">
+                                    <div class="content">
+                                        <h3>CSRF_1</h3>
+                                        
+                                        <p>
+                                            
+                                                <span class="tag is-post-tag">CSRF</span>
+                                            
+                                        </p>
+                                        <p>
+                                            
+
+
+漏洞原理&#8195;当web应用没有对用户的一些敏感操作（修改密码，添加用户等）进行二次验证，导致攻击者可以构造恶意文件或链接，当用户在存在漏洞网站的认证身份信息没有失效时，访问了恶意链接，就会在受害者不执行的情况下，以受害者的身份向服务器发送请求，完成一些非法操作的攻击行为。
+&#8195;没明白的小伙伴请看下面的图解
+
+漏洞利用&#8195;..
+                                        </p>
+                                        <p>2019-12-05</p>
+                                        <button class="button is-small">Read More</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        </div>
+                    
+                
+                    
+                        <div class="content-box  is-hidden-desktop" style="margin-bottom: 27px;">
+                            <a class="post-hover" href="/2019/12/03/XSS_2/">
+                            <div class="columns" style="min-height: 230px;">
+                                
+                                    <div class="column is-4-desktop is-5-tablet post-avatar is-hidden-mobile"
+                                         style="margin: 10px; background-size: cover;background-image: url('/images/xsschat.png')">
+                                    </div>
+                                
+                                <div class="column is-8-desktop post-content is-flex align-center">
+                                    <div class="content">
+                                        <h3>XSS_案例</h3>
+                                        
+                                        <p>
+                                            
+                                                <span class="tag is-post-tag">xss</span>
+                                            
+                                        </p>
+                                        <p>
+                                            
+
+
+文件上传XSS1.上传html文件
+&#8195;文件内容为xss的payload
+&#8195;&lt;svg/onload=alert(1)&gt;
+&#8195;上传成功后去访问就会触发
+2.上传svg文件
+&#8195;svg文件内容为：
+123456&lt;?xml version=&quot;1.0&quot; encoding=&qu..
+                                        </p>
+                                        <p>2019-12-03</p>
+                                        <button class="button is-small">Read More</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        </div>
+                    
+                
+                    
+                        <div class="content-box  " style="margin-bottom: 27px;">
                             <a class="post-hover" href="/2019/12/03/脚本收集/">
                             <div class="columns" style="min-height: 230px;">
                                 
@@ -316,7 +393,7 @@ Bypass&#8195;1.hex编码
                     
                 
                     
-                        <div class="content-box  is-hidden-desktop" style="margin-bottom: 27px;">
+                        <div class="content-box  " style="margin-bottom: 27px;">
                             <a class="post-hover" href="/2019/12/02/XSS bypass/">
                             <div class="columns" style="min-height: 230px;">
                                 
@@ -336,6 +413,7 @@ Bypass&#8195;1.hex编码
                                         <p>
                                             
 
+
 Bypass&#8195;1.hex编码
 
 &#8195;2.大小写
@@ -344,7 +422,7 @@ Bypass&#8195;1.hex编码
 
 
 &#8195;3.空格回车Tab
-1&lt;img src=&quot;javas	cript:alert(..
+1&lt;img src=&quot;javas	cript:alert..
                                         </p>
                                         <p>2019-12-02</p>
                                         <button class="button is-small">Read More</button>

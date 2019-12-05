@@ -15,14 +15,17 @@
   </script>
 
   
-  <title>My Works | Hexo</title>
+  <title>脚本收集 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="My Works">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;works&#x2F;index.html">
+  <meta name="description" content="此贴不定时更新一些有用的小脚本小工具https:&#x2F;&#x2F;github.com&#x2F;gwen001&#x2F;pentest-tools&#x2F;blob&#x2F;master&#x2F;dnsexpire.py 此脚本可检测域名到期时间，可利用此脚本检测子域名接管。">
+<meta name="keywords" content="脚本">
+<meta property="og:type" content="article">
+<meta property="og:title" content="脚本收集">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;03&#x2F;%E8%84%9A%E6%9C%AC%E6%94%B6%E9%9B%86&#x2F;index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="此贴不定时更新一些有用的小脚本小工具https:&#x2F;&#x2F;github.com&#x2F;gwen001&#x2F;pentest-tools&#x2F;blob&#x2F;master&#x2F;dnsexpire.py 此脚本可检测域名到期时间，可利用此脚本检测子域名接管。">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-11-25T14:55:33.046Z">
+<meta property="og:updated_time" content="2019-12-03T13:23:48.917Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -101,113 +104,108 @@
 
   <div id="main-wrap" class="position-relative" style="margin-top: 55px;">
       <div class="main-inner-content">
-          <style>
+          <!--博文页面-->
 
-    header .bg-header {
-        height: 560px;
-        /*background-color: #62A4FF;*/
-        background-image: -webkit-linear-gradient(top, #54D3DD, #9778F9)
+<style>
+    .header-box {
+        height: 370px;
+        filter: blur(10px);
+        background-size: cover;
+        background-color: lightsteelblue;
     }
 
-    /*头像*/
-    .bg-header .avatar img {
+    .post-box {
+        padding: 15px;
+        padding-top: 60px;
+        min-height: 80vh;
+        margin-top: -200px;
+        border-radius: 4px;
+        background-color: rgba(255,255,255,.8);
+    }
+
+    .post-avatar {
+        height: 30px;
+        width: 30px;
         border-radius: 50%;
-        margin-top: 100px;
-        max-width: 170px;
     }
 
-    .bg-header h1,
-    .bg-header h2 {
-        color: white;
+    .flow-chart {
+        text-align: center;
     }
 
-    /*姓名*/
-    .bg-header h1 {
-        letter-spacing: 2px;
-        text-shadow: 0 0 10px rgba(15, 15, 15, .3);
-    }
-
-    /*描述*/
-    .bg-header h2 {
-        font-size: 18px;
-        margin-top: 12px;
-    }
-
-    /*整个作品展示区*/
-    .works-area {
-        margin-top: -175px;
-    }
-
-    .works-area .works-item {
-        width: 80%;
-        max-width: 1200px;
-
-        border-radius: 2px;
-        border: 1px solid #eee8d5;
-        margin: 25px auto;
-        box-shadow: 8px 5px 10px rgba(0, 0, 0, .2);
-    }
-
-    .works-item-img {
-        margin: auto -26px;
-    }
-
-    .works-item-img img {
-        width: 100%;
-    }
-
-    .works-area .works-item {
-        background: white;
-        padding: 0 25px 15px;
-    }
-
-    .works-item .works-content {
-        padding-top: 15px;
-    }
-
-    .works-item .title {
-        height: 50px;
-        margin: 0;
-    }
-
-    .works-item .title{
-        font-size: 18px;
-    }
-
-    .works-item .use span {
-        display: inline-block;
-        font-size: 12px;
-        border-radius: 3px;
-        padding: 0 4px;
-        border: thin solid #795548;
-    }
-
-    .works-item .subtitle {
-        margin: 0;
-        font-size: 17px;
+    img[alt="post-cover"] {
+        display: none;
     }
 </style>
-
-<div class="works-container" style="background-color: #fafafa">
-    <header>
-        <div class="bg-header is-flex justify-center">
-            <div class="profile">
-                <div class="avatar">
-                    <img src="https://cdn2.iconfinder.com/data/icons/rcons-user/32/male-shadow-circle-512.png">
-                </div>
-                <div class="personal-profile has-text-centered content">
-                    <h1>
-                        Oldman
-                    </h1>
-                    <h2>-- 个人作品集 --</h2>
-                </div>
+<header>
+    <div id="header_box" class="header-box"></div>
+</header>
+<section>
+    <div class="container post-box">
+        <div class="content post-title is-flex center flex-column" style="margin-bottom: 70px; overflow: auto;">
+            <h1 class="has-text-centered" style="padding-bottom: 10px; border-bottom: 3px solid #fff">
+                <strong>脚本收集</strong>
+            </h1>
+            
+            <div class="is-flex align-center">
+                <img class="post-avatar" src="https://cdn2.iconfinder.com/data/icons/rcons-user/32/male-shadow-circle-512.png">
+                <span style="padding:0 10px;"> <span class="sub-title">By</span> Oldman</span>
+                <span class="post-date sub-title">at: 2019-12-03</span>
             </div>
+            
+                <div>
+                    
+                         <a class="tag is-post-tag" href="/tags/脚本/">脚本</a>
+                    
+                </div>
+            
         </div>
-    </header>
-    <div class="container works-area">
-        
+        <div class="content" style="overflow: auto">
+            <h1 id="此贴不定时更新一些有用的小脚本小工具"><a href="#此贴不定时更新一些有用的小脚本小工具" class="headerlink" title="此贴不定时更新一些有用的小脚本小工具"></a>此贴不定时更新一些有用的小脚本小工具</h1><p><code>https://github.com/gwen001/pentest-tools/blob/master/dnsexpire.py</code> 此脚本可检测域名到期时间，可利用此脚本检测子域名接管。</p>
+
+        </div>
+        <div class="post-reply">
+            
+                <!-- 来必力City版安装代码 -->
+                <div id="lv-container" data-id="city" data-uid="MTAyMC8yOTE4Ni81NzUz">
+                    <script type="text/javascript">
+                        (function(d, s) {
+                            var j, e = d.getElementsByTagName(s)[0];
+
+                            if (typeof LivereTower === 'function') { return; }
+
+                            j = d.createElement(s);
+                            j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+                            j.async = true;
+
+                            e.parentNode.insertBefore(j, e);
+                        })(document, 'script');
+                    </script>
+                    <noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+                </div>
+                <!-- City版安装代码已完成 -->
+            
+            
+        </div>
     </div>
-</div>
+</section>
+<script>
+    // 获取第一张图, 用以当封面背景图
+    var img = document.querySelectorAll('img')[1]
+
+    if (img) {
+        var header_box = document.querySelector('#header_box')
+        header_box.style.backgroundImage = 'url('+ img.src +')'
+    }
+</script>
+
+<!-- for code block highlight --> 
+<!-- theme.block_highlight -->
+<!-- we do not guarantee the char sequences spell right, usr himself do it -->
+<link rel="stylesheet" href="/css/highlight_rainbow.css">
+<script src="/js/highlight.min.js"></script>
+<script type="text/javascript"> hljs.initHighlightingOnLoad();</script>
+
       </div>
   </div>
   <style>

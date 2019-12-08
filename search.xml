@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>如何做信息收集</title>
+      <link href="/2019/12/08/%E5%A6%82%E4%BD%95%E5%81%9A%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/"/>
+      <url>/2019/12/08/%E5%A6%82%E4%BD%95%E5%81%9A%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/</url>
+      
+        <content type="html"><![CDATA[<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="550" height="86" src="//music.163.com/outchain/player?type=2&id=1406311852&auto=0&height=66"></iframe><p>收集的网站是：<code>*.tumblr.com</code></p><h2 id="子域收集"><a href="#子域收集" class="headerlink" title="子域收集"></a>子域收集</h2><p>&#8195;1.Sublist3r</p><p><img src="/images/sublist3r.png" alt="sublist3r"></p><p>&#8195;大约过了10多分钟</p><p><img src="/images/sublist3r1.png" alt="sublist3r"></p><p>&#8195;说实话我没想到我随便找的一个看似很小的站却有这么多域名</p><p>&#8195;2.aquatone</p><p>&#8195;&#8195;使用命令<code>amass enum --passive -d tumblr.com -o amass.txt</code>找到了1910个子域名</p><p>&#8195;3.OneForAll</p><p>&#8195;<code>https://github.com/shmilylty/OneForAll</code></p><p>&#8195;&#8195;使用命令<code>python3 oneforall.py --target tumblr.com run --valid=None</code>收集完成后，csv文件会在results目录下，这款工具用着蛮不错的，扫出来5k多</p><p>&#8195;4.ESD</p><p>&#8195;<code>https://github.com/FeeiCN/ESD</code></p><p>&#8195;命令：<code>esd -d tumblr.com</code></p><p>&#8195;5.通过证书查询</p><p>&#8195;<code>https://crt.sh/?q=%.tumblr.com</code></p><p><img src="/images/crt.png" alt="crt"></p><p>&#8195;<code>https://censys.io/certificates?q=parsed.names%3Atumblr.com</code></p><p><img src="/images/censys.png" alt="censys"></p><h2 id="指纹识别"><a href="#指纹识别" class="headerlink" title="指纹识别"></a>指纹识别</h2><p>&#8195;1.在线网站识别</p><p>&#8195;<code>http://www.yunsee.cn/</code></p><p>&#8195;2.浏览器插件<code>Wappalyzer</code></p><p> <img src="/images/wappalzer.png" alt="wappalzer"></p><h2 id="Google-Dork"><a href="#Google-Dork" class="headerlink" title="Google Dork"></a>Google Dork</h2><p><code>https://github.com/nerrorsec/GoogleDorker</code></p><p>&#8195;这款工具会根据你输入的域名生成规则，并以域名为html文件名生成一个页面，下载到本地访问后</p><p><img src="/images/googledork.png" alt="googledork"></p><h2 id="web目录"><a href="#web目录" class="headerlink" title="web目录"></a>web目录</h2><p>&#8195;1.kali linux里自带的<code>dirb、dirbuster、wfuzz</code></p><p>&#8195;2.<code>dirsearch</code> <code>https://github.com/maurosoria/dirsearch</code></p><h2 id="字典"><a href="#字典" class="headerlink" title="字典"></a>字典</h2><p>&#8195;这个字典里啥都有，挺好用的：<code>https://github.com/danielmiessler/SecLists?source=post_page-----ec25f7f12e6d----------------------</code></p><h2 id="绕CDN"><a href="#绕CDN" class="headerlink" title="绕CDN"></a>绕CDN</h2><p>&#8195;1.验证CDN的存在</p><p>&#8195;&#8195;首先我们先确定网站是否存在CDN，使用在线网站<code>https://www.17ce.com/site/index</code>当你发现解析ip不一样，那么就是存在CDN。</p><p><img src="/images/ping.png" alt="ping"></p><p>&#8195;2.绕过CDN获取真实ip</p><p>&#8195;&#8195;还是使用刚才内个在线网站，挨个去访问我们收集到的子域名，总会有那么几个站是没有cdn的。</p><p>&#8195;&#8195;在注册网站的时候，网站会给我们发邮箱，可通过检查电子邮件原文查找Received字段获取服务器的真实ip</p><p>&#8195;&#8195;使用工具<code>https://github.com/m0rtem/CloudFail、https://github.com/vincentcox/bypass-firewalls-by-DNS-history</code>，如何使用都有介绍，我就不说了</p><p>&#8195;&#8195;DNS历史解析记录可能会有真实ip<code>https://dnsdb.io/zh-cn/、https://x.threatbook.cn/</code></p><h2 id="C段扫描"><a href="#C段扫描" class="headerlink" title="C段扫描"></a>C段扫描</h2><p>&#8195;在我们获取到他真实ip后，我们就可以进行c段扫描了</p><p>&#8195;首先先探测主机存活<code>nmap -sn -PE -n ip/24</code></p><p>&#8195;获取到存活ip后进行全端口的扫描<code>nmap -sS -Pn -p 1-65535 -n ip</code></p><p>&#8195;为什么这样做我应该就不用说了，我相信你们懂</p><h2 id="Final"><a href="#Final" class="headerlink" title="Final"></a>Final</h2><p>&#8195;目前感觉有OneForAll这款工具就够用了，但还是写一款自己用的自动化脚本用起来会比较顺手，so，但愿自己能在年前把这个脚本写出来</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> recon </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> recon </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>CSRF_bypass和案例</title>
       <link href="/2019/12/05/CSRF_2/"/>
       <url>/2019/12/05/CSRF_2/</url>

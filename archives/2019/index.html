@@ -144,38 +144,33 @@
                 
 <div class="primary-container content-box is-flex-desktop clear-padding bottom-line" style="margin-bottom: 25px;">
     <div class="column  is-7-desktop">
-        <a href="/2019/12/08/如何做信息收集/">
+        <a href="/2019/12/09/jsonp与cors/">
             <div class="full-height post-hover"
                  style="
-                         background-image: url('/images/sublist3r.png');
+                         background-image: url('/images/jsonp3.png');
                          height: 350px;
                          background-size: cover;
                          background-repeat: no-repeat;
                          ">
                     <div class=" is-flex flex-column center content has-text-centered full-height has-padding content-bg-mask">
                         <h1 class="title text-shadow" style="margin-bottom: 15px;">
-                            如何做信息收集
+                            JSONP劫持与CORS
                         </h1>
                         <div>
                         
                             `
-                                <span class="tag is-post-tag">recon</span>
+                                <span class="tag is-post-tag">csrf</span>
                             
                         
                         </div>
                         <p class="post-content-text is-marginless has-padding text-shadow">
                             
+## JSONP？
 
-收集的网站是：*.tumblr.com
-子域收集&#8195;1.Sublist3r
-
-&#8195;大约过了10多分钟
-
-&#8195;说实话我没想到我随便找的一个看似很小的站却有这么多域名
-&#8195;2.aquatone
-&..
+&#8195;JSONP就是为了跨域获取资源而产生的一种技术手段，这种技术是利用script和src属性不受同源策略影响的特性。（所谓同源是指，域名，协议，端口相同）
+JSONP劫持&#8195;jsonp劫持就..
                         </p>
-                        <p class="date text-shadow">2019-12-08</p>
+                        <p class="date text-shadow">2019-12-09</p>
                         <button class="button is-info is-small">Read More</button>
                     </div>
             </div>
@@ -183,6 +178,33 @@
     </div>
     <div class="column is-5 is-hidden-touch" style="padding-left: 0;">
         <div class="full-height is-flex flex-column justify-space-between" style="min-height: 350px;">
+            
+                
+<a class="post-hover" href="/2019/12/08/如何做信息收集/" style="height: 48.5%">
+    <div class="content is-hidden-touch full-height overflow-hidden" style="background-image: url('/images/sublist3r.png')">
+        <div class="content-bg-mask full-width full-height has-padding">
+            <h3 class="title is-marginless text-shadow">
+                如何做信息收集
+            </h3>
+            
+            
+            <span class="tag is-post-tag">recon</span>
+            
+            
+            <p class="sub-title text-shadow"></p>
+            <p class="is-marginless text-shadow post-content-text">
+                
+收集的网站是：`*.tumblr.com`
+
+子域收集&#8195;1.Sublist3r
+
+..
+            </p>
+            <p class="date text-shadow is-marginless">2019-12-08</p>
+        </div>
+    </div>
+</a>
+            
             
                 
 <a class="post-hover" href="/2019/12/05/CSRF_2/" style="height: 48.5%">
@@ -203,31 +225,6 @@
 
 1.使用其他人的CSRF令牌
 &#8195;当应用程序不验证csrf令牌..
-            </p>
-            <p class="date text-shadow is-marginless">2019-12-05</p>
-        </div>
-    </div>
-</a>
-            
-            
-                
-<a class="post-hover" href="/2019/12/05/CSRF_1/" style="height: 48.5%">
-    <div class="content is-hidden-touch full-height overflow-hidden" style="background-image: url('/images/csrf.png')">
-        <div class="content-bg-mask full-width full-height has-padding">
-            <h3 class="title is-marginless text-shadow">
-                CSRF_1
-            </h3>
-            
-            
-            <span class="tag is-post-tag">CSRF</span>
-            
-            
-            <p class="sub-title text-shadow"></p>
-            <p class="is-marginless text-shadow post-content-text">
-                
-
-
-漏洞原理&#8195;当web应用没有对用户的一些敏感操作（修改密码，添加用户等）进行二次..
             </p>
             <p class="date text-shadow is-marginless">2019-12-05</p>
         </div>
@@ -239,6 +236,33 @@
     <div class="column is-12 is-hidden-desktop">
         
         
+<a class="post-hover" href="/2019/12/08/如何做信息收集/" style="height: 48.5%">
+    <div class="content is-hidden-touch full-height overflow-hidden" style="background-image: url('/images/sublist3r.png')">
+        <div class="content-bg-mask full-width full-height has-padding">
+            <h3 class="title is-marginless text-shadow">
+                如何做信息收集
+            </h3>
+            
+            
+            <span class="tag is-post-tag">recon</span>
+            
+            
+            <p class="sub-title text-shadow"></p>
+            <p class="is-marginless text-shadow post-content-text">
+                
+收集的网站是：`*.tumblr.com`
+
+子域收集&#8195;1.Sublist3r
+
+..
+            </p>
+            <p class="date text-shadow is-marginless">2019-12-08</p>
+        </div>
+    </div>
+</a>
+        
+        
+        
 <a class="post-hover" href="/2019/12/05/CSRF_2/" style="height: 48.5%">
     <div class="content is-hidden-touch full-height overflow-hidden" style="background-image: url('')">
         <div class="content-bg-mask full-width full-height has-padding">
@@ -263,35 +287,49 @@
     </div>
 </a>
         
-        
-        
-<a class="post-hover" href="/2019/12/05/CSRF_1/" style="height: 48.5%">
-    <div class="content is-hidden-touch full-height overflow-hidden" style="background-image: url('/images/csrf.png')">
-        <div class="content-bg-mask full-width full-height has-padding">
-            <h3 class="title is-marginless text-shadow">
-                CSRF_1
-            </h3>
-            
-            
-            <span class="tag is-post-tag">CSRF</span>
-            
-            
-            <p class="sub-title text-shadow"></p>
-            <p class="is-marginless text-shadow post-content-text">
-                
-
-
-漏洞原理&#8195;当web应用没有对用户的一些敏感操作（修改密码，添加用户等）进行二次..
-            </p>
-            <p class="date text-shadow is-marginless">2019-12-05</p>
-        </div>
-    </div>
-</a>
-        
     </div>
 </div>
 
                     
+                    
+                
+                    
+                        <div class="content-box  is-hidden-desktop" style="margin-bottom: 27px;">
+                            <a class="post-hover" href="/2019/12/08/如何做信息收集/">
+                            <div class="columns" style="min-height: 230px;">
+                                
+                                    <div class="column is-4-desktop is-5-tablet post-avatar is-hidden-mobile"
+                                         style="margin: 10px; background-size: cover;background-image: url('/images/sublist3r.png')">
+                                    </div>
+                                
+                                <div class="column is-8-desktop post-content is-flex align-center">
+                                    <div class="content">
+                                        <h3>如何做信息收集</h3>
+                                        
+                                        <p>
+                                            
+                                                <span class="tag is-post-tag">recon</span>
+                                            
+                                        </p>
+                                        <p>
+                                            
+收集的网站是：`*.tumblr.com`
+
+子域收集&#8195;1.Sublist3r
+
+&#8195;大约过了10多分钟
+
+&#8195;说实话我没想到我随便找的一个看似很小的站却有这么多域名
+&#8195;2.aquatone
+&#8195;&#8195;使用命令amass enum --passive -d tumblr.com -o ama..
+                                        </p>
+                                        <p>2019-12-08</p>
+                                        <button class="button is-small">Read More</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        </div>
                     
                 
                     
@@ -327,7 +365,7 @@
                     
                 
                     
-                        <div class="content-box  is-hidden-desktop" style="margin-bottom: 27px;">
+                        <div class="content-box  " style="margin-bottom: 27px;">
                             <a class="post-hover" href="/2019/12/05/CSRF_1/">
                             <div class="columns" style="min-height: 230px;">
                                 
@@ -383,14 +421,13 @@
                                         <p>
                                             
 
-
 文件上传XSS1.上传html文件
 &#8195;文件内容为xss的payload
 &#8195;&lt;svg/onload=alert(1)&gt;
 &#8195;上传成功后去访问就会触发
 2.上传svg文件
 &#8195;svg文件内容为：
-123456&lt;?xml version=&quot;1.0&quot; encoding=&qu..
+123456&lt;?xml version=&quot;1.0&quot; encoding=&quo..
                                         </p>
                                         <p>2019-12-03</p>
                                         <button class="button is-small">Read More</button>
@@ -408,7 +445,7 @@
                                 
                                 <div class="column is-8-desktop post-content is-flex align-center">
                                     <div class="content">
-                                        <h3>脚本收集</h3>
+                                        <h3>资源收集</h3>
                                         
                                         <p>
                                             
@@ -416,7 +453,8 @@
                                             
                                         </p>
                                         <p>
-                                            此贴不定时更新一些有用的小脚本小工具https://github.com/gwen001/pentest-tools/blob/master/dnsexpire.py 此脚本可检测域名到期时间，可利用此脚本检测子域名接管。
+                                            此贴不定时更新一些有用的小脚本小工具好网站https://github.com/gwen001/pentest-tools/blob/master/dnsexpire.py 此脚本可检测域名到期时间，可利用此脚本检测子域名接管。
+https://www.giftofspeed.com/cache-checker/
 
                                         </p>
                                         <p>2019-12-03</p>
@@ -560,6 +598,9 @@ Bypass&#8195;1.hex编码
     本站总访客量：<span id="busuanzi_value_site_uv"></span>人
   </span>
 </div>
+
+
+
 
 </body>
 </html>

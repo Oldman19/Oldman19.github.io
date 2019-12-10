@@ -25,7 +25,7 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="## Bypass  1.使用其他人的CSRF令牌 &amp;#8195;当应用程序不验证csrf令牌是否绑定到这个账户时，可以自己尝试去验证这一点：首先用账户a登录到网站，转到密码更改页面，使用burp抓取csrf令牌。使用账户B登录网站，并修改账户B的密码，在修改时抓包修改csrf令牌，如果成功就证明可以使用他人的csrf令牌。 2.替换相同长度的值 &amp;#8195;首先我们先确定令牌的长度，例如长度">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-12-05T14:42:39.261Z">
+<meta property="og:updated_time" content="2019-12-10T04:00:08.268Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -187,7 +187,7 @@
 <p>&#8195;此csrf漏洞是在绑定电子邮箱和账户名处，从而导致账户接管，作者发现在修改邮箱时会验证csrf令牌，如果删除就会失败，当他把这个post请求改为get请求后，就能成功绕过，这样的话只要任意用户访问我们的恶意链接，我们就可以修改他的邮箱，和用户名，这看起来很简单，但是他获得了2400美金</p>
 <p>3.<strong>XSS与CSRf的利用，导致账户接管</strong></p>
 <p>&#8195;首先是发现了一个<code>self-xss</code>，然后发现修改密码处需要csrf令牌，作者通过self-xss窃取csrf令牌，并同时写入到csrf payload 页面，并跳转过去，这样的话就可以成功的修改密码</p>
-<h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><p>&#8195;本来打算在后面写个jsonp劫持和cors劫持，但是我现在打算用接下来3天的时间写一个recon脚本，打算设计两种功能，一、快速获取子域名，二、可能会很慢但是会比较全的收集子域名，我也不知道我这3天能否完成，但是我想试试</p>
+<h2 id="END"><a href="#END" class="headerlink" title="END"></a>END</h2><p>&#8195;本来打算在后面写个jsonp劫持和cors劫持，但是我现在打算用接下来3天的时间写一个recon脚本，打算设计两种功能，一、快速获取子域名，二、可能会很慢但是会比较全的收集子域名，我也不知道我这3天能否完成，但是我想试试</p>
 <h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p><code>http://infosecflash.com/2019/01/05/how-i-could-have-taken-over-any-pinterest-account/</code></p>
 <p><code>https://shahmeeramir.com/methods-to-bypass-csrf-protection-on-a-web-application-3198093f6599</code></p>
 <p><code>https://medium.com/swlh/bypassing-csrf-protection-c9b217175ee</code></p>
@@ -198,7 +198,7 @@
         <div class="post-reply">
             
                 <!-- 来必力City版安装代码 -->
-                <div id="lv-container" data-id="city" data-uid="MTAyMC8yOTE4Ni81NzUz">
+                <div id="lv-container" data-id="city" data-uid="MTAyMC80Nzg4NS8yNDM4Mg==">
                     <script type="text/javascript">
                         (function(d, s) {
                             var j, e = d.getElementsByTagName(s)[0];
@@ -280,6 +280,9 @@
     本站总访客量：<span id="busuanzi_value_site_uv"></span>人
   </span>
 </div>
+
+
+
 
 </body>
 </html>

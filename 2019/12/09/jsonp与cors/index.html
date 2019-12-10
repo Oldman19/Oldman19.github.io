@@ -17,13 +17,13 @@
   
   <title>JSONP劫持与CORS | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="JSONP？&amp;#8195;JSONP就是为了跨域获取资源而产生的一种技术手段，这种技术是利用script和src属性不受同源策略影响的特性。（所谓同源是指，域名，协议，端口相同） JSONP劫持&amp;#8195;jsonp劫持就是攻击者获取到网站本应传给其他接口的一些敏感数据。如果网站B对网站A的JSONP请求没有进行安全检查直接返回数据，则网站B 便存在JSONP 漏洞，网站A 利用JSONP">
+  <meta name="description" content="JSONP？&amp;#8195;JSONP就是为了跨域获取资源而产生的一种技术手段，这种技术是利用script和src属性不受同源策略影响的特性。（所谓同源是指，域名，协议，端口相同） JSONP劫持&amp;#8195;jsonp劫持就是攻击者获取到网站本应传给其他接口的一些敏感数据。如果网站B对网站A的JSONP请求没有进行安全检查直接返回数据，则网站B 便存在JSONP 漏洞，网站A 利用JSON">
 <meta name="keywords" content="csrf">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JSONP劫持与CORS">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;09&#x2F;jsonp%E4%B8%8Ecors&#x2F;index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="JSONP？&amp;#8195;JSONP就是为了跨域获取资源而产生的一种技术手段，这种技术是利用script和src属性不受同源策略影响的特性。（所谓同源是指，域名，协议，端口相同） JSONP劫持&amp;#8195;jsonp劫持就是攻击者获取到网站本应传给其他接口的一些敏感数据。如果网站B对网站A的JSONP请求没有进行安全检查直接返回数据，则网站B 便存在JSONP 漏洞，网站A 利用JSONP">
+<meta property="og:description" content="JSONP？&amp;#8195;JSONP就是为了跨域获取资源而产生的一种技术手段，这种技术是利用script和src属性不受同源策略影响的特性。（所谓同源是指，域名，协议，端口相同） JSONP劫持&amp;#8195;jsonp劫持就是攻击者获取到网站本应传给其他接口的一些敏感数据。如果网站B对网站A的JSONP请求没有进行安全检查直接返回数据，则网站B 便存在JSONP 漏洞，网站A 利用JSON">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;jsonp3.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;jsonp1.png">
@@ -32,7 +32,7 @@
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;cors2.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;cors3.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;cors4.png">
-<meta property="og:updated_time" content="2019-12-10T04:26:14.798Z">
+<meta property="og:updated_time" content="2019-12-10T04:28:15.016Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;jsonp3.png">
   
@@ -170,6 +170,7 @@
         </div>
         <div class="content" style="overflow: auto">
             <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="550" height="86" src="//music.163.com/outchain/player?type=2&id=1335899405&auto=0&height=66"></iframe>
+
 
 
 <h2 id="JSONP？"><a href="#JSONP？" class="headerlink" title="JSONP？"></a>JSONP？</h2><p>&#8195;JSONP就是为了跨域获取资源而产生的一种技术手段，这种技术是利用<code>script</code>和<code>src</code>属性不受同源策略影响的特性。（所谓同源是指，域名，协议，端口相同）</p>

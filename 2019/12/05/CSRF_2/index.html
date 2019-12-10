@@ -17,15 +17,15 @@
   
   <title>CSRF_bypass和案例 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Bypass1.使用其他人的CSRF令牌 &amp;#8195;当应用程序不验证csrf令牌是否绑定到这个账户时，可以自己尝试去验证这一点：首先用账户a登录到网站，转到密码更改页面，使用burp抓取csrf令牌。使用账户B登录网站，并修改账户B的密码，在修改时抓包修改csrf令牌，如果成功就证明可以使用他人的csrf令牌。 2.替换相同长度的值 &amp;#8195;首先我们先确定令牌的长度，例如长度为21">
+  <meta name="description" content="Bypass1.使用其他人的CSRF令牌 &amp;#8195;当应用程序不验证csrf令牌是否绑定到这个账户时，可以自己尝试去验证这一点：首先用账户a登录到网站，转到密码更改页面，使用burp抓取csrf令牌。使用账户B登录网站，并修改账户B的密码，在修改时抓包修改csrf令牌，如果成功就证明可以使用他人的csrf令牌。 2.替换相同长度的值 &amp;#8195;首先我们先确定令牌的长度，例如长度为2">
 <meta name="keywords" content="CSRF">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CSRF_bypass和案例">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;05&#x2F;CSRF_2&#x2F;index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Bypass1.使用其他人的CSRF令牌 &amp;#8195;当应用程序不验证csrf令牌是否绑定到这个账户时，可以自己尝试去验证这一点：首先用账户a登录到网站，转到密码更改页面，使用burp抓取csrf令牌。使用账户B登录网站，并修改账户B的密码，在修改时抓包修改csrf令牌，如果成功就证明可以使用他人的csrf令牌。 2.替换相同长度的值 &amp;#8195;首先我们先确定令牌的长度，例如长度为21">
+<meta property="og:description" content="Bypass1.使用其他人的CSRF令牌 &amp;#8195;当应用程序不验证csrf令牌是否绑定到这个账户时，可以自己尝试去验证这一点：首先用账户a登录到网站，转到密码更改页面，使用burp抓取csrf令牌。使用账户B登录网站，并修改账户B的密码，在修改时抓包修改csrf令牌，如果成功就证明可以使用他人的csrf令牌。 2.替换相同长度的值 &amp;#8195;首先我们先确定令牌的长度，例如长度为2">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-12-10T04:26:38.941Z">
+<meta property="og:updated_time" content="2019-12-10T04:27:53.261Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -162,6 +162,7 @@
         </div>
         <div class="content" style="overflow: auto">
             <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="550" height="86" src="//music.163.com/outchain/player?type=2&id=29713635&auto=0&height=66"></iframe>
+
 
 
 <h2 id="Bypass"><a href="#Bypass" class="headerlink" title="Bypass"></a>Bypass</h2><p>1.<strong>使用其他人的CSRF令牌</strong></p>

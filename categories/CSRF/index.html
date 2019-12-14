@@ -15,11 +15,11 @@
   </script>
 
   
-  <title>Category: csrf | Hexo</title>
+  <title>Category: CSRF | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta property="og:type" content="website">
 <meta property="og:title" content="Hexo">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;categories&#x2F;csrf&#x2F;index.html">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;categories&#x2F;CSRF&#x2F;index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:locale" content="en">
 <meta name="twitter:card" content="summary">
@@ -117,7 +117,7 @@
 
 <div class="container tag-cate-wrap">
     <div class="category-title-inner content has-text-centered">
-        <h1><strong style="border-top: 2px solid; border-bottom: 2px solid;">category·csrf</strong></h1>
+        <h1><strong style="border-top: 2px solid; border-bottom: 2px solid;">category·CSRF</strong></h1>
     </div>
 
     
@@ -125,24 +125,52 @@
         <div class="box">
             <article class="media">
                 
-                <a href="/2019/12/09/jsonp与cors/">
+                <a href="/2019/12/05/CSRF_2/">
+                    
+                    <div class="media-content">
+                        <div class="content">
+                            <p>
+                                <strong>CSRF_bypass和案例</strong> <small class="post-date">at: 2019-12-05</small>
+                                <br>
+                                
+
+
+
+Bypass1.使用其他人的CSRF令牌
+&#8195;当应用程序不验证csrf令牌是否绑定到这个账户时，可以自己尝试去验证这一点：首先用账户a登录到网站，转到密码更改页面，使用burp抓取csrf令牌。使用账户B登录网站，并修改账户B的密码，在修改时抓包修改csrf令牌，如果成功就证明可以使用他人的csrf令牌。
+2.替换相同长度的值
+&#81..
+                            </p>
+                            <button class="button is-info">Read</button>
+                        </div>
+                    </div>
+                </a>
+            </article>
+        </div>
+    
+        <div class="box">
+            <article class="media">
+                
+                <a href="/2019/12/05/CSRF_1/">
                     
                     <div class="media-left">
                         <figure class="image is-128x128">
-                            <img src="/images/jsonp3.png" style="height: 100%; width: 100%">
+                            <img src="/images/csrf.png" style="height: 100%; width: 100%">
                         </figure>
                     </div>
                     
                     <div class="media-content">
                         <div class="content">
                             <p>
-                                <strong>JSONP劫持与CORS</strong> <small class="post-date">at: 2019-12-09</small>
+                                <strong>CSRF_1</strong> <small class="post-date">at: 2019-12-05</small>
                                 <br>
                                 
 
 
-JSONP？&#8195;JSONP就是为了跨域获取资源而产生的一种技术手段，这种技术是利用script和src属性不受同源策略影响的特性。（所谓同源是指，域名，协议，端口相同）
-JSONP劫持&#8195;jsonp劫持就是攻击者获取到网站本应传给其他接口的一些敏感数据。如果网站B对网站A的JSONP请求没有进行安全检查直接返回数据，则网站B 便..
+漏洞原理&#8195;当web应用没有对用户的一些敏感操作（修改密码，添加用户等）进行二次验证，导致攻击者可以构造恶意文件或链接，当用户在存在漏洞网站的认证身份信息没有失效时，访问了恶意链接，就会在受害者不执行的情况下，以受害者的身份向服务器发送请求，完成一些非法操作的攻击行为。
+&#8195;没明白的小伙伴请看下面的图解
+
+漏洞利用&#8195;..
                             </p>
                             <button class="button is-info">Read</button>
                         </div>
@@ -153,53 +181,6 @@ JSONP劫持&#8195;jsonp劫持就是攻击者获取到网站本应传给其他接
     
 </div>
       </div>
-  </div>
-  <style>
-  #footer {
-    min-height: 10vh;
-    background: black;
-    color: #fff;
-  }
-
-  #footer a {
-    color: #e1e1e1;
-  }
-</style>
-<footer id="footer" class="has-text-centered is-flex center">
-  <div class="container has-padding">
-    <div>
-      <div>
-        <!--请您保留作者署名, 主题制作来之不易-->
-        Theme by <a href="https://github.com/haojen" target="_blank" rel="noopener">Haojen Ma</a>
-        <br>
-        Copyright © Old Man 2019
-        <br>
-        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
-      </div>
-    </div>
-  </div>
-</footer>
-
-<script src="/js/search_core.js"></script>
-<script src="/js/script.js"></script>
-
-<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-<div class="powered-by">
-  <i class="fa fa-user-md"></i>
-  <span id="busuanzi_container_site_pv">
-    本站访问量:<span id="busuanzi_value_site_pv"></span>次
-  </span>
-  <span class="post-meta-divider">|</span>
-  <span id="busuanzi_container_site_uv">
-    本站总访客量：<span id="busuanzi_value_site_uv"></span>人
-  </span>
-</div>
-
-
-
-</body>
-</html>  </div>
   </div>
   <style>
   #footer {

@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>HTTP参数污染</title>
+      <link href="/2019/12/14/HTTP%E5%8F%82%E6%95%B0%E6%B1%A1%E6%9F%93/"/>
+      <url>/2019/12/14/HTTP%E5%8F%82%E6%95%B0%E6%B1%A1%E6%9F%93/</url>
+      
+        <content type="html"><![CDATA[<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="550" height="86" src="//music.163.com/outchain/player?type=2&id=386844&auto=0&height=66"></iframe><h2 id="HTTP参数污染"><a href="#HTTP参数污染" class="headerlink" title="HTTP参数污染"></a>HTTP参数污染</h2><p>&#8195;HTTP参数污染也叫HPP（HTTP Parameter Pollution），原理很简单就是同名称的参数出现多次，不同的服务器处理的方式不一样，有的会取第一个参数，有的会取第二个参数，还有的两个参数都取，就比如url为:<code>http://example.com/?color=red&amp;color=blue</code>服务器具体认第一个还是第二个可以对照下图。</p><p><img src="/images/HPP1.png" alt="HPP1"></p><h2 id="攻击客户端"><a href="#攻击客户端" class="headerlink" title="攻击客户端"></a>攻击客户端</h2><p>&#8195;这里用到<code>bwapp</code>这个靶场,当用户登录后，可以给喜欢的电影投票</p><p><img src="/images/HPP2.png" alt="HPP1"></p><p>&#8195;我现在给第一个电影投票，点击<code>Vote</code>后，发现url中有个<code>movie=1</code>参数</p><p><img src="/images/HPP3.png" alt="HPP1"></p><p>&#8195;尝试HPP攻击，发现的确存在这个漏洞，而且是采用第二个参数</p><p><img src="/images/HPP4.png" alt="HPP1"></p><p>&#8195;现在我们把用户名改为syx&amp;movie=1</p><p><img src="/images/HPP5.png" alt="HPP1"></p><p>&#8195;这样的话给任何电影投票，都是投给第一个电影，当然了，这个例子不太好，后面我会找真实案例分享给大家。</p><h2 id="攻击服务器端"><a href="#攻击服务器端" class="headerlink" title="攻击服务器端"></a>攻击服务器端</h2><p>&#8195;服务器会根据我们发送过去的数据来执行一些功能，例如：</p><p><code>https://xxx.bitcoin.com/transfer?from=1337&amp;to=8008&amp;amount=1000</code></p><p>&#8195;在此url中，有三个参数会传到服务器，这样1000个比特币就能从一个账户转到另一个账户，我们只需添加一个额外的from参数，就会从别人的账户转1000比特币到8008账户</p><h2 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h2><p>1.社交共享按钮中的参数污染</p><p>&#8195;这个漏洞就是在我们分享一个文章到一些社交平台的时候发送的并不是自己想要分享的文章</p><p>&#8195;就比如url:<code>https://xxx.com/blog/test</code></p><p>&#8195;我们把它修改为<code>https://xxx.com/blog/test?&amp;u=https://vk.com</code></p><p>&#8195;当有人访问了这个链接并点击了分享，</p><p>&#8195;这个链接就会变成<code>https://facebook.com/sharer.php?u=https://xxx.com/blog/test?&amp;u=https://vk.com</code>因为存在hpp，而且服务器端会选择第二个参数，就把内个恶意链接分享到facebook了。</p><p>2.Twitter取消订阅提醒</p><p>&#8195;当在取消接收Twitter的提醒时，url：<code>https://twitter.com/i/u?t=1&amp;cn=bWV&amp;sig=657&amp;iid=F6542&amp;uid=1134885524&amp;nid=22+26</code></p><p>&#8195;这里有个<code>uid</code>这个参数,是我们账户的<code>uid</code>，当我们把它修改为其他<code>uid</code>的时候，twitter返回错误，然后尝试<code>HPP</code>，添加第二个<code>uid</code>参数,url：<code>https://twitter.com/i/u?iid=F6542&amp;uid=2321301342&amp;uid=1134885524&amp;nid=22+26</code>然后就成功的取消订阅了其他用户的邮件提醒</p><p>3.HPP到账户接管</p><p>&#8195;在网站的重置密码处，在提交邮箱时，会生成重置密码的连接，链接的值为内个邮箱，同时还会发送邮件到内个有邮箱，我们利用HPP，提交多个电子邮箱，发现服务器会采用第一个邮箱的值生成密码重置链接，然后把重置链接发送到了第二个邮箱，我们就可以打开邮箱重置其他用户的密码了，因为一些原因这里没有配图，原文链接是：<code>https://medium.com/@logicbomb_1/bugbounty-compromising-user-account-how-i-was-able-to-compromise-user-account-via-http-4288068b901f</code></p><h2 id="如何预防HPP？"><a href="#如何预防HPP？" class="headerlink" title="如何预防HPP？"></a>如何预防HPP？</h2><ul><li>在将用户输入嵌入到URL中之前，请确保用户输入已被URL编码</li><li>必须使用严格的正则表达式</li><li>您应该了解后端如何处理一个参数的多次出现</li></ul><h2 id="END"><a href="#END" class="headerlink" title="END"></a>END</h2><p>&#8195;HPP这种漏洞最近案例很少，非常少，多数都是利用这种漏洞来bypass waf</p><h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p><code>https://press.one/files/46204c0082089a540cefffd6f834da2139bb7ff3e01a73f12218219458b5b4ce</code></p><p><code>https://www.cnblogs.com/backlion/p/8556150.html</code></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> HTTP </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> HTTP </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>HTTP请求走私</title>
       <link href="/2019/12/12/http%E8%AF%B7%E6%B1%82%E8%B5%B0%E7%A7%81/"/>
       <url>/2019/12/12/http%E8%AF%B7%E6%B1%82%E8%B5%B0%E7%A7%81/</url>

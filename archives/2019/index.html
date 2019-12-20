@@ -144,22 +144,22 @@
                 
 <div class="primary-container content-box is-flex-desktop clear-padding bottom-line" style="margin-bottom: 25px;">
     <div class="column  is-7-desktop">
-        <a href="/2019/12/14/HTTP参数污染/">
+        <a href="/2019/12/18/linux权限维持/">
             <div class="full-height post-hover"
                  style="
-                         background-image: url('/images/HPP1.png');
+                         background-image: url('/images/crontab.png');
                          height: 350px;
                          background-size: cover;
                          background-repeat: no-repeat;
                          ">
                     <div class=" is-flex flex-column center content has-text-centered full-height has-padding content-bg-mask">
                         <h1 class="title text-shadow" style="margin-bottom: 15px;">
-                            HTTP参数污染
+                            Linux权限维持
                         </h1>
                         <div>
                         
                             `
-                                <span class="tag is-post-tag">HTTP</span>
+                                <span class="tag is-post-tag">内网</span>
                             
                         
                         </div>
@@ -167,10 +167,12 @@
                             
 
 
-
-HTTP参数污染&#8195;HTTP参数污染也叫HPP（HTTP Parameter Pollution），原理很简单就是同名称的参数出现多次，不同的服务器处理的方式不一样，有的会取第一个参数，有的会取第二个参数，还有的两个参..
+attack：192.168.71.14
+victim：192.168.71.13
+SSHD软连接&#8195;首先在victim执行以下命令
+ln -sf /usr/sbin/sshd /tmp/su;/tmp/su -oPor..
                         </p>
-                        <p class="date text-shadow">2019-12-14</p>
+                        <p class="date text-shadow">2019-12-18</p>
                         <button class="button is-info is-small">Read More</button>
                     </div>
             </div>
@@ -180,6 +182,32 @@ HTTP参数污染&#8195;HTTP参数污染也叫HPP（HTTP Parameter Pollution）�
         <div class="full-height is-flex flex-column justify-space-between" style="min-height: 350px;">
             
                 
+<a class="post-hover" href="/2019/12/14/HTTP参数污染/" style="height: 48.5%">
+    <div class="content is-hidden-touch full-height overflow-hidden" style="background-image: url('/images/HPP1.png')">
+        <div class="content-bg-mask full-width full-height has-padding">
+            <h3 class="title is-marginless text-shadow">
+                HTTP参数污染
+            </h3>
+            
+            
+            <span class="tag is-post-tag">HTTP</span>
+            
+            
+            <p class="sub-title text-shadow"></p>
+            <p class="is-marginless text-shadow post-content-text">
+                
+
+
+
+HTTP参数污染&#8195;HTTP参数污染也叫HPP（HTTP Parameter ..
+            </p>
+            <p class="date text-shadow is-marginless">2019-12-14</p>
+        </div>
+    </div>
+</a>
+            
+            
+                
 <a class="post-hover" href="/2019/12/12/http请求走私/" style="height: 48.5%">
     <div class="content is-hidden-touch full-height overflow-hidden" style="background-image: url('/images/CLTE5.png')">
         <div class="content-bg-mask full-width full-height has-padding">
@@ -200,31 +228,6 @@ HTTP参数污染&#8195;HTTP参数污染也叫HPP（HTTP Parameter Pollution）�
 HTTP请求走私（HTTP Request Smuggler）&#8195;HTTP请求..
             </p>
             <p class="date text-shadow is-marginless">2019-12-12</p>
-        </div>
-    </div>
-</a>
-            
-            
-                
-<a class="post-hover" href="/2019/12/09/jsonp与cors/" style="height: 48.5%">
-    <div class="content is-hidden-touch full-height overflow-hidden" style="background-image: url('/images/jsonp3.png')">
-        <div class="content-bg-mask full-width full-height has-padding">
-            <h3 class="title is-marginless text-shadow">
-                JSONP劫持与CORS
-            </h3>
-            
-            
-            <span class="tag is-post-tag">csrf</span>
-            
-            
-            <p class="sub-title text-shadow"></p>
-            <p class="is-marginless text-shadow post-content-text">
-                
-
-
-JSONP？&#8195;JSONP就是为了跨域获取资源而产生的一种技术手段，这种技术是利..
-            </p>
-            <p class="date text-shadow is-marginless">2019-12-09</p>
         </div>
     </div>
 </a>
@@ -234,6 +237,32 @@ JSONP？&#8195;JSONP就是为了跨域获取资源而产生的一种技术手段
     <div class="column is-12 is-hidden-desktop">
         
         
+<a class="post-hover" href="/2019/12/14/HTTP参数污染/" style="height: 48.5%">
+    <div class="content is-hidden-touch full-height overflow-hidden" style="background-image: url('/images/HPP1.png')">
+        <div class="content-bg-mask full-width full-height has-padding">
+            <h3 class="title is-marginless text-shadow">
+                HTTP参数污染
+            </h3>
+            
+            
+            <span class="tag is-post-tag">HTTP</span>
+            
+            
+            <p class="sub-title text-shadow"></p>
+            <p class="is-marginless text-shadow post-content-text">
+                
+
+
+
+HTTP参数污染&#8195;HTTP参数污染也叫HPP（HTTP Parameter ..
+            </p>
+            <p class="date text-shadow is-marginless">2019-12-14</p>
+        </div>
+    </div>
+</a>
+        
+        
+        
 <a class="post-hover" href="/2019/12/12/http请求走私/" style="height: 48.5%">
     <div class="content is-hidden-touch full-height overflow-hidden" style="background-image: url('/images/CLTE5.png')">
         <div class="content-bg-mask full-width full-height has-padding">
@@ -258,35 +287,44 @@ HTTP请求走私（HTTP Request Smuggler）&#8195;HTTP请求..
     </div>
 </a>
         
-        
-        
-<a class="post-hover" href="/2019/12/09/jsonp与cors/" style="height: 48.5%">
-    <div class="content is-hidden-touch full-height overflow-hidden" style="background-image: url('/images/jsonp3.png')">
-        <div class="content-bg-mask full-width full-height has-padding">
-            <h3 class="title is-marginless text-shadow">
-                JSONP劫持与CORS
-            </h3>
-            
-            
-            <span class="tag is-post-tag">csrf</span>
-            
-            
-            <p class="sub-title text-shadow"></p>
-            <p class="is-marginless text-shadow post-content-text">
-                
-
-
-JSONP？&#8195;JSONP就是为了跨域获取资源而产生的一种技术手段，这种技术是利..
-            </p>
-            <p class="date text-shadow is-marginless">2019-12-09</p>
-        </div>
-    </div>
-</a>
-        
     </div>
 </div>
 
                     
+                    
+                
+                    
+                        <div class="content-box  is-hidden-desktop" style="margin-bottom: 27px;">
+                            <a class="post-hover" href="/2019/12/14/HTTP参数污染/">
+                            <div class="columns" style="min-height: 230px;">
+                                
+                                    <div class="column is-4-desktop is-5-tablet post-avatar is-hidden-mobile"
+                                         style="margin: 10px; background-size: cover;background-image: url('/images/HPP1.png')">
+                                    </div>
+                                
+                                <div class="column is-8-desktop post-content is-flex align-center">
+                                    <div class="content">
+                                        <h3>HTTP参数污染</h3>
+                                        
+                                        <p>
+                                            
+                                                <span class="tag is-post-tag">HTTP</span>
+                                            
+                                        </p>
+                                        <p>
+                                            
+
+
+
+HTTP参数污染&#8195;HTTP参数污染也叫HPP（HTTP Parameter Pollution），原理很简单就是同名称的参数出现多次，不同的服务器处理的方式不一样，有的会取第一个参数，有的会取第二个参数，还有的两个参数都取，就比如url为:http://example.com/?color=red&amp;color=blue服务器具..
+                                        </p>
+                                        <p>2019-12-14</p>
+                                        <button class="button is-small">Read More</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        </div>
                     
                 
                     
@@ -325,7 +363,7 @@ HTTP请求走私（HTTP Request Smuggler）&#8195;HTTP请求走私是一种干�
                     
                 
                     
-                        <div class="content-box  is-hidden-desktop" style="margin-bottom: 27px;">
+                        <div class="content-box  " style="margin-bottom: 27px;">
                             <a class="post-hover" href="/2019/12/09/jsonp与cors/">
                             <div class="columns" style="min-height: 230px;">
                                 
@@ -567,44 +605,6 @@ Bypass&#8195;1.hex编码
 1&lt;img src=&quot;javas	cript:alert..
                                         </p>
                                         <p>2019-12-02</p>
-                                        <button class="button is-small">Read More</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                        </div>
-                    
-                
-                    
-                        <div class="content-box  " style="margin-bottom: 27px;">
-                            <a class="post-hover" href="/2019/11/25/XSS_1/">
-                            <div class="columns" style="min-height: 230px;">
-                                
-                                    <div class="column is-4-desktop is-5-tablet post-avatar is-hidden-mobile"
-                                         style="margin: 10px; background-size: cover;background-image: url('/images/xsslc.jpg')">
-                                    </div>
-                                
-                                <div class="column is-8-desktop post-content is-flex align-center">
-                                    <div class="content">
-                                        <h3>XSS_利用</h3>
-                                        
-                                        <p>
-                                            
-                                                <span class="tag is-post-tag">xss</span>
-                                            
-                                        </p>
-                                        <p>
-                                            
-
-
-漏洞原理&#8195;简单的来说就是web应用对用户的输入过滤不足，导致攻击者插入恶意的脚本代码
-攻击流程
-分类&#8195;反射型
-&#8195;&#8195;这种类型可以说是一次性的，需要用户去点击攻击者篡改后的链接，才会触发
-&#8195;存储型
-&#8195;&#8195;这种类型的话，恶意代码会被存储的网站数据库中，知道用户去访问就会触发..
-                                        </p>
-                                        <p>2019-11-25</p>
                                         <button class="button is-small">Read More</button>
                                     </div>
                                 </div>

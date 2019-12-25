@@ -125,6 +125,38 @@
         <div class="box">
             <article class="media">
                 
+                <a href="/2019/12/25/获取CDN背后网站的真实ip/">
+                    
+                    <div class="media-left">
+                        <figure class="image is-128x128">
+                            <img src="/images/IP.png" style="height: 100%; width: 100%">
+                        </figure>
+                    </div>
+                    
+                    <div class="media-content">
+                        <div class="content">
+                            <p>
+                                <strong>绕过CDN获取真实ip</strong> <small class="post-date">at: 2019-12-25</small>
+                                <br>
+                                
+
+
+
+获取ip首先我们从apnic获取亚洲区域分配的ip
+wget ftp://ftp.apnic.net/public/apnic/stats/apnic/delegated-apnic-latest
+然后筛查出我们需要的国家
+cat delegated-apnic-latest |grep -e &#39;CN|ipv4&#39; -e &#39;..
+                            </p>
+                            <button class="button is-info">Read</button>
+                        </div>
+                    </div>
+                </a>
+            </article>
+        </div>
+    
+        <div class="box">
+            <article class="media">
+                
                 <a href="/2019/12/08/如何做信息收集/">
                     
                     <div class="media-left">
@@ -139,10 +171,8 @@
                                 <strong>如何做信息收集</strong> <small class="post-date">at: 2019-12-08</small>
                                 <br>
                                 
+收集的网站是：`*.tumblr.com`
 
-
-
-收集的网站是：*.tumblr.com
 子域收集&#8195;1.Sublist3r
 
 &#8195;大约过了10多分钟

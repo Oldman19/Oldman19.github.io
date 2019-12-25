@@ -144,22 +144,22 @@
                 
 <div class="primary-container content-box is-flex-desktop clear-padding bottom-line" style="margin-bottom: 25px;">
     <div class="column  is-7-desktop">
-        <a href="/2019/12/18/linux权限维持/">
+        <a href="/2019/12/25/获取CDN背后网站的真实ip/">
             <div class="full-height post-hover"
                  style="
-                         background-image: url('/images/crontab.png');
+                         background-image: url('/images/IP.png');
                          height: 350px;
                          background-size: cover;
                          background-repeat: no-repeat;
                          ">
                     <div class=" is-flex flex-column center content has-text-centered full-height has-padding content-bg-mask">
                         <h1 class="title text-shadow" style="margin-bottom: 15px;">
-                            Linux权限维持
+                            绕过CDN获取真实ip
                         </h1>
                         <div>
                         
                             `
-                                <span class="tag is-post-tag">内网</span>
+                                <span class="tag is-post-tag">recon</span>
                             
                         
                         </div>
@@ -167,12 +167,13 @@
                             
 
 
-attack：192.168.71.14
-victim：192.168.71.13
-SSHD软连接&#8195;首先在victim执行以下命令
-ln -sf /usr/sbin/sshd /tmp/su;/tmp/su -oPor..
+
+获取ip首先我们从apnic获取亚洲区域分配的ip
+wget ftp://ftp.apnic.net/public/apnic/stats/apnic/delegated-apnic-latest
+然后筛查出我们需要的国家
+ca..
                         </p>
-                        <p class="date text-shadow">2019-12-18</p>
+                        <p class="date text-shadow">2019-12-25</p>
                         <button class="button is-info is-small">Read More</button>
                     </div>
             </div>
@@ -182,6 +183,33 @@ ln -sf /usr/sbin/sshd /tmp/su;/tmp/su -oPor..
         <div class="full-height is-flex flex-column justify-space-between" style="min-height: 350px;">
             
                 
+<a class="post-hover" href="/2019/12/18/linux权限维持/" style="height: 48.5%">
+    <div class="content is-hidden-touch full-height overflow-hidden" style="background-image: url('/images/crontab.png')">
+        <div class="content-bg-mask full-width full-height has-padding">
+            <h3 class="title is-marginless text-shadow">
+                Linux权限维持
+            </h3>
+            
+            
+            <span class="tag is-post-tag">内网</span>
+            
+            
+            <p class="sub-title text-shadow"></p>
+            <p class="is-marginless text-shadow post-content-text">
+                
+
+
+attack：192.168.71.14
+victim：192.168.71.13
+SSH..
+            </p>
+            <p class="date text-shadow is-marginless">2019-12-18</p>
+        </div>
+    </div>
+</a>
+            
+            
+                
 <a class="post-hover" href="/2019/12/14/HTTP参数污染/" style="height: 48.5%">
     <div class="content is-hidden-touch full-height overflow-hidden" style="background-image: url('/images/HPP1.png')">
         <div class="content-bg-mask full-width full-height has-padding">
@@ -198,36 +226,9 @@ ln -sf /usr/sbin/sshd /tmp/su;/tmp/su -oPor..
                 
 
 
-
-HTTP参数污染&#8195;HTTP参数污染也叫HPP（HTTP Parameter ..
+HTTP参数污染&#8195;HTTP参数污染也叫HPP（HTTP Parameter P..
             </p>
             <p class="date text-shadow is-marginless">2019-12-14</p>
-        </div>
-    </div>
-</a>
-            
-            
-                
-<a class="post-hover" href="/2019/12/12/http请求走私/" style="height: 48.5%">
-    <div class="content is-hidden-touch full-height overflow-hidden" style="background-image: url('/images/CLTE5.png')">
-        <div class="content-bg-mask full-width full-height has-padding">
-            <h3 class="title is-marginless text-shadow">
-                HTTP请求走私
-            </h3>
-            
-            
-            <span class="tag is-post-tag">HTTP</span>
-            
-            
-            <p class="sub-title text-shadow"></p>
-            <p class="is-marginless text-shadow post-content-text">
-                
-
-
-
-HTTP请求走私（HTTP Request Smuggler）&#8195;HTTP请求..
-            </p>
-            <p class="date text-shadow is-marginless">2019-12-12</p>
         </div>
     </div>
 </a>
@@ -237,6 +238,33 @@ HTTP请求走私（HTTP Request Smuggler）&#8195;HTTP请求..
     <div class="column is-12 is-hidden-desktop">
         
         
+<a class="post-hover" href="/2019/12/18/linux权限维持/" style="height: 48.5%">
+    <div class="content is-hidden-touch full-height overflow-hidden" style="background-image: url('/images/crontab.png')">
+        <div class="content-bg-mask full-width full-height has-padding">
+            <h3 class="title is-marginless text-shadow">
+                Linux权限维持
+            </h3>
+            
+            
+            <span class="tag is-post-tag">内网</span>
+            
+            
+            <p class="sub-title text-shadow"></p>
+            <p class="is-marginless text-shadow post-content-text">
+                
+
+
+attack：192.168.71.14
+victim：192.168.71.13
+SSH..
+            </p>
+            <p class="date text-shadow is-marginless">2019-12-18</p>
+        </div>
+    </div>
+</a>
+        
+        
+        
 <a class="post-hover" href="/2019/12/14/HTTP参数污染/" style="height: 48.5%">
     <div class="content is-hidden-touch full-height overflow-hidden" style="background-image: url('/images/HPP1.png')">
         <div class="content-bg-mask full-width full-height has-padding">
@@ -253,36 +281,9 @@ HTTP请求走私（HTTP Request Smuggler）&#8195;HTTP请求..
                 
 
 
-
-HTTP参数污染&#8195;HTTP参数污染也叫HPP（HTTP Parameter ..
+HTTP参数污染&#8195;HTTP参数污染也叫HPP（HTTP Parameter P..
             </p>
             <p class="date text-shadow is-marginless">2019-12-14</p>
-        </div>
-    </div>
-</a>
-        
-        
-        
-<a class="post-hover" href="/2019/12/12/http请求走私/" style="height: 48.5%">
-    <div class="content is-hidden-touch full-height overflow-hidden" style="background-image: url('/images/CLTE5.png')">
-        <div class="content-bg-mask full-width full-height has-padding">
-            <h3 class="title is-marginless text-shadow">
-                HTTP请求走私
-            </h3>
-            
-            
-            <span class="tag is-post-tag">HTTP</span>
-            
-            
-            <p class="sub-title text-shadow"></p>
-            <p class="is-marginless text-shadow post-content-text">
-                
-
-
-
-HTTP请求走私（HTTP Request Smuggler）&#8195;HTTP请求..
-            </p>
-            <p class="date text-shadow is-marginless">2019-12-12</p>
         </div>
     </div>
 </a>
@@ -291,6 +292,44 @@ HTTP请求走私（HTTP Request Smuggler）&#8195;HTTP请求..
 </div>
 
                     
+                    
+                
+                    
+                        <div class="content-box  is-hidden-desktop" style="margin-bottom: 27px;">
+                            <a class="post-hover" href="/2019/12/18/linux权限维持/">
+                            <div class="columns" style="min-height: 230px;">
+                                
+                                    <div class="column is-4-desktop is-5-tablet post-avatar is-hidden-mobile"
+                                         style="margin: 10px; background-size: cover;background-image: url('/images/crontab.png')">
+                                    </div>
+                                
+                                <div class="column is-8-desktop post-content is-flex align-center">
+                                    <div class="content">
+                                        <h3>Linux权限维持</h3>
+                                        
+                                        <p>
+                                            
+                                                <span class="tag is-post-tag">内网</span>
+                                            
+                                        </p>
+                                        <p>
+                                            
+
+
+attack：192.168.71.14
+victim：192.168.71.13
+SSHD软连接&#8195;首先在victim执行以下命令
+ln -sf /usr/sbin/sshd /tmp/su;/tmp/su -oPort=5555
+&#8195;然后再attack上连接victim，任意密码皆可登陆
+ssh root@192.168.7..
+                                        </p>
+                                        <p>2019-12-18</p>
+                                        <button class="button is-small">Read More</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        </div>
                     
                 
                     
@@ -315,8 +354,7 @@ HTTP请求走私（HTTP Request Smuggler）&#8195;HTTP请求..
                                             
 
 
-
-HTTP参数污染&#8195;HTTP参数污染也叫HPP（HTTP Parameter Pollution），原理很简单就是同名称的参数出现多次，不同的服务器处理的方式不一样，有的会取第一个参数，有的会取第二个参数，还有的两个参数都取，就比如url为:http://example.com/?color=red&amp;color=blue服务器具..
+HTTP参数污染&#8195;HTTP参数污染也叫HPP（HTTP Parameter Pollution），原理很简单就是同名称的参数出现多次，不同的服务器处理的方式不一样，有的会取第一个参数，有的会取第二个参数，还有的两个参数都取，就比如url为:http://example.com/?color=red&amp;color=blue服务器具体..
                                         </p>
                                         <p>2019-12-14</p>
                                         <button class="button is-small">Read More</button>
@@ -328,7 +366,7 @@ HTTP参数污染&#8195;HTTP参数污染也叫HPP（HTTP Parameter Pollution）�
                     
                 
                     
-                        <div class="content-box  is-hidden-desktop" style="margin-bottom: 27px;">
+                        <div class="content-box  " style="margin-bottom: 27px;">
                             <a class="post-hover" href="/2019/12/12/http请求走私/">
                             <div class="columns" style="min-height: 230px;">
                                 
@@ -416,10 +454,8 @@ JSONP劫持&#8195;jsonp劫持就是攻击者获取到网站本应传给其他接
                                         </p>
                                         <p>
                                             
+收集的网站是：`*.tumblr.com`
 
-
-
-收集的网站是：*.tumblr.com
 子域收集&#8195;1.Sublist3r
 
 &#8195;大约过了10多分钟
@@ -564,47 +600,6 @@ https://www.giftofspeed.com/cache-checker/
 
                                         </p>
                                         <p>2019-12-03</p>
-                                        <button class="button is-small">Read More</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                        </div>
-                    
-                
-                    
-                        <div class="content-box  " style="margin-bottom: 27px;">
-                            <a class="post-hover" href="/2019/12/02/XSS bypass/">
-                            <div class="columns" style="min-height: 230px;">
-                                
-                                    <div class="column is-4-desktop is-5-tablet post-avatar is-hidden-mobile"
-                                         style="margin: 10px; background-size: cover;background-image: url('/images/xssbp.png')">
-                                    </div>
-                                
-                                <div class="column is-8-desktop post-content is-flex align-center">
-                                    <div class="content">
-                                        <h3>XSS bypass</h3>
-                                        
-                                        <p>
-                                            
-                                                <span class="tag is-post-tag">xss</span>
-                                            
-                                        </p>
-                                        <p>
-                                            
-
-
-Bypass&#8195;1.hex编码
-
-&#8195;2.大小写
-1&lt;script&gt;alert(1)&lt;/script&gt;  ————》 &lt;sCriPt&gt;AlERt(1)&lt;/sCriPt&gt;
-
-
-
-&#8195;3.空格回车Tab
-1&lt;img src=&quot;javas	cript:alert..
-                                        </p>
-                                        <p>2019-12-02</p>
                                         <button class="button is-small">Read More</button>
                                     </div>
                                 </div>

@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>Latest version cms vulnerability analysis</title>
+      <link href="/2020/03/31/Vulnerability%20analysis%20of%20the%20latest%20version%20of%20cms/"/>
+      <url>/2020/03/31/Vulnerability%20analysis%20of%20the%20latest%20version%20of%20cms/</url>
+      
+        <content type="html"><![CDATA[<p>First prove that there is a reflective XSS vulnerability</p><p>poc：<code>index.php?a=news_list&amp;c=news&amp;key=&lt;sCrIpT&gt;alert(/xss/)&lt;/ScRiPt&gt;&amp;m=</code></p><p><img src="/images/cmsxss1.png" alt></p><p>From the display on the page, it can be clearly seen that the parameter key is not strictly filtered, and it is very simple to cause the xss vulnerability.</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Vulnerability analysis </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Vulnerability analysis </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>python基础学习</title>
       <link href="/2020/01/17/Python3%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/"/>
       <url>/2020/01/17/Python3%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/</url>
